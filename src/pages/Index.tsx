@@ -66,7 +66,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-center">
             <img 
-              src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=60&fit=crop&crop=face" 
+              src="/lovable-uploads/d52eb172-4f26-4f4a-919d-72050880f3b8.png" 
               alt="Unlock Viral Logo" 
               className="h-12 object-contain"
             />
@@ -82,7 +82,7 @@ const Index = () => {
               La llave Que Usan Los Influencers y Negocios Para Viralizarse
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight max-w-5xl mx-auto">
               Los 5 Pasos Que Me Llevó Años y Miles de Dólares Descubrir, Y Que Hoy Podés Aplicar Vos Para{" "}
               <span className="highlight-text">Crecer, Posicionarte Y Vender</span> Con Contenido
             </h1>
@@ -90,15 +90,14 @@ const Index = () => {
             {/* Video Section */}
             <div className="relative max-w-3xl mx-auto mb-12">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
-                <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=450&fit=crop" 
-                  alt="Video Preview" 
-                  className="w-full h-64 md:h-96 object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Button className="bg-white/20 hover:bg-white/30 text-white p-6 rounded-full backdrop-blur-sm">
-                    <Play className="w-8 h-8 ml-1" />
-                  </Button>
+                <div className="aspect-video">
+                  <iframe 
+                    src="https://www.youtube.com/embed/2X7B8dKxxGE?si=dMy0_83iGdhUzRjz"
+                    title="Unlock Viral VSL"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -119,7 +118,7 @@ const Index = () => {
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <img 
-                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=500&h=600&fit=crop&crop=face" 
+                src="/lovable-uploads/9dacb8c7-8bf2-496c-9f71-9c1d73de4f6e.png" 
                 alt="Araceli Prudente" 
                 className="rounded-3xl shadow-2xl w-full max-w-md mx-auto"
               />
@@ -283,7 +282,7 @@ const Index = () => {
 
                 <div className="text-center my-12">
                   <img 
-                    src="https://images.unsplash.com/photo-1500673922987-e212871fec22?w=600&h=400&fit=crop" 
+                    src="/lovable-uploads/c4fa3858-f072-416b-a933-13edc1f37f6c.png" 
                     alt="Los 5 Pasos" 
                     className="rounded-2xl shadow-xl mx-auto max-w-full"
                   />
@@ -321,7 +320,7 @@ const Index = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <img 
-                src="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=800&h=500&fit=crop" 
+                src="/lovable-uploads/d91100a7-8fc2-4410-844b-148434201e77.png" 
                 alt="Mockups del curso" 
                 className="rounded-2xl shadow-2xl mx-auto max-w-full"
               />
@@ -458,7 +457,8 @@ const Index = () => {
                     "Categorías según tipo de contenido para que elijas en segundos",
                     "Bonus extra: cómo combinar hooks con tu guión para retención máxima"
                   ],
-                  conclusion: "Este es el archivo que me habría encantado tener cuando empecé. Hoy te lo regalo con el curso."
+                  conclusion: "Este es el archivo que me habría encantado tener cuando empecé. Hoy te lo regalo con el curso.",
+                  image: "/lovable-uploads/cb6e40fb-4a8b-452b-8be2-cbaed9a3976c.png"
                 },
                 {
                   label: "BONUS #2",
@@ -471,7 +471,8 @@ const Index = () => {
                     "Cómo sostener tu motivación sin depender de los resultados inmediatos",
                     "Qué hábitos mentales tengo como creadora que me permiten seguir creciendo"
                   ],
-                  conclusion: "Este módulo no es un 'extra de relleno'. Es lo que te va a mantener vivo en el juego cuando todos los demás se rindan."
+                  conclusion: "Este módulo no es un 'extra de relleno'. Es lo que te va a mantener vivo en el juego cuando todos los demás se rindan.",
+                  image: "/lovable-uploads/7b112151-c5ee-4f42-a409-65889da8f519.png"
                 },
                 {
                   label: "BONUS #3",
@@ -484,7 +485,8 @@ const Index = () => {
                     "Explicaciones de cada parte del guión y cómo usarla para retener",
                     "Ejemplos reales y fórmulas listas para adaptar a tu estilo"
                   ],
-                  conclusion: "Este bonus es como tener mi cabeza al lado tuyo cada vez que escribís un video."
+                  conclusion: "Este bonus es como tener mi cabeza al lado tuyo cada vez que escribís un video.",
+                  image: "/lovable-uploads/3b318131-11ca-478c-bfd7-c8955d4d6696.png"
                 }
               ].map((bonus, index) => (
                 <Card key={index} className="shadow-2xl border-0 overflow-hidden">
@@ -495,7 +497,7 @@ const Index = () => {
                     <div className="grid md:grid-cols-2 gap-0">
                       <div className="bg-gradient-to-br from-cyan-100 to-cyan-200 p-8 flex items-center justify-center">
                         <img 
-                          src={`https://images.unsplash.com/photo-1500673922987-e212871fec22?w=400&h=300&fit=crop&seed=${index + 10}`}
+                          src={bonus.image}
                           alt={`Bonus ${index + 1}`}
                           className="rounded-xl shadow-lg max-w-full"
                         />
@@ -546,7 +548,7 @@ const Index = () => {
 
             <div className="mb-12">
               <img 
-                src="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=800&h=500&fit=crop" 
+                src="/lovable-uploads/89fb2c1f-04f6-4af2-8d3d-e891bc97e143.png" 
                 alt="Mockups completos" 
                 className="rounded-2xl shadow-2xl mx-auto max-w-full"
               />
