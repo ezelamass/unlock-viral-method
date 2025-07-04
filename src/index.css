@@ -111,4 +111,61 @@ All colors MUST be HSL.
     background-clip: text;
     font-weight: 600;
   }
+
+  .animate-gradient {
+    background: linear-gradient(-45deg, #00d4ff, #1e90ff, #00d4ff, #40e0d0);
+    background-size: 400% 400%;
+    animation: gradient 3s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s infinite;
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    }
+    to {
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+    }
+  }
 }

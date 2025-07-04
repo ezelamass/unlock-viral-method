@@ -1,24 +1,70 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Play } from "lucide-react";
+import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Index = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const toggleFaq = (index: number) => {
     setExpandedFaq(expandedFaq === index ? null : index);
   };
 
+  // Auto-scroll del carrousel
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonialImages.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonialImages.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonialImages.length) % testimonialImages.length);
+  };
+
   const CTAButton = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-    <Button 
-      className={`w-full max-w-lg mx-auto bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-bold py-6 px-8 rounded-2xl text-lg shadow-2xl transform hover:scale-105 transition-all duration-300 animate-pulse-gentle ${className}`}
-      onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
-    >
-      {children}
-    </Button>
+    <div className="relative group">
+      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
+      <Button 
+        className={`relative w-full max-w-lg mx-auto bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-bold py-8 px-8 rounded-2xl text-lg shadow-2xl transform hover:scale-105 transition-all duration-300 border-0 ${className}`}
+        onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
+      >
+        <div className="flex flex-col items-center gap-2">
+          <div className="flex items-center gap-3">
+            <Play className="w-6 h-6 animate-pulse" />
+            <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+          </div>
+          <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+        </div>
+      </Button>
+    </div>
   );
+
+  // Imágenes de testimonios "He ayudado a"
+  const helpedImages = [
+    "/lovable-uploads/b6baa57f-ee97-47e1-b9fc-d624dbeabf28.png",
+    "/lovable-uploads/da9fb5ca-97f7-4cfe-ba26-d3918af40e81.png",
+    "/lovable-uploads/0a411b4f-3322-42c4-9625-768568d3ca16.png",
+    "/lovable-uploads/1fb89345-eab9-4e5f-acbf-204d8688feb7.png",
+    "/lovable-uploads/ba0f67e2-bf9b-4e78-95bb-4e029778b431.png"
+  ];
+
+  // Imágenes de testimonios para el carrousel
+  const testimonialImages = [
+    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop&seed=1",
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop&seed=2",
+    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop&seed=3",
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop&seed=4",
+    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop&seed=5",
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop&seed=6",
+    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop&seed=7",
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop&seed=8"
+  ];
 
   const faqData = [
     {
@@ -68,27 +114,27 @@ const Index = () => {
             <img 
               src="/lovable-uploads/d52eb172-4f26-4f4a-919d-72050880f3b8.png" 
               alt="Unlock Viral Logo" 
-              className="h-12 object-contain"
+              className="h-10 object-contain"
             />
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-cyan-50 to-white">
+      <section className="py-12 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto animate-fade-in">
-            <div className="bg-cyan-100 text-cyan-800 px-6 py-3 rounded-full inline-block mb-8 font-semibold">
+          <div className="max-w-6xl mx-auto animate-fade-in">
+            <div className="bg-cyan-100 text-cyan-800 px-6 py-3 rounded-full inline-block mb-6 font-semibold text-sm">
               La llave Que Usan Los Influencers y Negocios Para Viralizarse
             </div>
             
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight max-w-5xl mx-auto">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 leading-tight max-w-6xl mx-auto">
               Los 5 Pasos Que Me Llevó Años y Miles de Dólares Descubrir, Y Que Hoy Podés Aplicar Vos Para{" "}
               <span className="highlight-text">Crecer, Posicionarte Y Vender</span> Con Contenido
             </h1>
 
             {/* Video Section */}
-            <div className="relative max-w-3xl mx-auto mb-12">
+            <div className="relative max-w-2xl mx-auto mb-8">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
                 <div className="aspect-video">
                   <iframe 
@@ -102,36 +148,31 @@ const Index = () => {
               </div>
             </div>
 
-            <CTAButton>
-              <div className="text-center">
-                <div className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</div>
-                <div className="text-sm opacity-90 mt-1">+3 Bonus Especiales, Por Tan Solo 47usd</div>
-              </div>
-            </CTAButton>
+            <CTAButton />
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <img 
                 src="/lovable-uploads/9dacb8c7-8bf2-496c-9f71-9c1d73de4f6e.png" 
                 alt="Araceli Prudente" 
-                className="rounded-3xl shadow-2xl w-full max-w-md mx-auto"
+                className="rounded-3xl shadow-2xl w-full max-w-sm mx-auto"
               />
             </div>
             
-            <div className="space-y-6">
-              <p className="text-lg text-gray-700">
+            <div className="space-y-4 text-base">
+              <p className="text-gray-700">
                 Mi nombre es <strong><span className="highlight-text">Araceli Prudente</span></strong> y hace 2 años entré al mundo digital con una misión clara: aprender todo lo que pudiera sobre <span className="text-cyan-600 font-semibold">contenido</span>, <span className="text-cyan-600 font-semibold">viralidad</span> y <span className="text-cyan-600 font-semibold">crecimiento orgánico</span>… y aplicarlo hasta volverme referente.
               </p>
               
-              <p className="text-lg text-gray-700">Crecí rápido, pero no fue casualidad.</p>
+              <p className="text-gray-700">Crecí rápido, pero no fue casualidad.</p>
               
-              <p className="text-lg text-gray-700">
+              <p className="text-gray-700">
                 Estudié <strong><span className="text-cyan-600">Licenciatura en Publicidad</span></strong>, invertí en <strong><span className="text-cyan-600">mentorías</span></strong>, y trabajé con más de <strong><span className="text-cyan-600">21 marcas y creadores</span></strong> de distintos nichos y países, creando estrategias de contenido que generaron <strong><span className="text-cyan-600">resultados reales y medibles</span></strong>.
               </p>
 
@@ -172,72 +213,91 @@ const Index = () => {
               </div>
 
               <div className="bg-gray-50 p-6 rounded-xl">
-                <p className="text-lg text-gray-700 mb-4">
+                <p className="text-gray-700 mb-4">
                   Y no, no te doy hacks vacíos como qué hashtag tenes que poner.
                 </p>
-                <p className="text-lg text-gray-700 mb-4">
+                <p className="text-gray-700 mb-4">
                   Te entrego <strong><span className="highlight-text">el método exacto</span></strong> que yo misma usé para viralizar, crecer y posicionarme. El mismo que aplican hoy creadores de contenido, emprendedores y alumnos míos que pagaron hasta <strong><span className="text-cyan-600">$2.000 USD por aprenderlo en mentorías 1 a 1</span></strong>.
                 </p>
-                <p className="text-lg text-gray-700 mb-4">
+                <p className="text-gray-700 mb-4">
                   Hoy, por primera vez, <strong><span className="highlight-text">lo empaqué en un curso accesible y directo al grano</span></strong>.
                 </p>
-                <p className="text-lg text-gray-700 font-semibold">
+                <p className="text-gray-700 font-semibold">
                   Y si estás leyendo esto, podés desbloquearlo ahora.
                 </p>
               </div>
 
               <div className="pt-6">
-                <CTAButton>
-                  <div className="text-center">
-                    <div className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</div>
-                    <div className="text-sm opacity-90 mt-1">+3 Bonus Especiales, Por Tan Solo 47usd</div>
-                  </div>
-                </CTAButton>
+                <CTAButton />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section 1 */}
+      {/* Testimonials Section 1 - He ayudado a */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">He ayudado a...</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
-            {[...Array(6)].map((_, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-6xl mx-auto">
+            {helpedImages.map((image, i) => (
               <img 
                 key={i}
-                src={`https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=250&fit=crop&crop=face&seed=${i}`}
-                alt={`Testimonio ${i + 1}`}
-                className="rounded-xl shadow-lg w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                src={image}
+                alt={`Cliente ${i + 1}`}
+                className="rounded-xl shadow-lg w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section 2 */}
+      {/* Testimonials Section 2 - Carrousel */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Algunos Testimonios...</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="space-y-6">
-              {[...Array(4)].map((_, i) => (
-                <img 
-                  key={i}
-                  src={`https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop&seed=${i}`}
-                  alt={`Testimonio ${i + 1}`}
-                  className="rounded-xl shadow-lg w-full hover:scale-105 transition-transform duration-300"
-                />
-              ))}
+          <div className="relative max-w-6xl mx-auto">
+            <div className="overflow-hidden rounded-2xl">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentTestimonial * (100 / 3)}%)` }}
+              >
+                {testimonialImages.map((image, i) => (
+                  <div key={i} className="w-1/3 flex-shrink-0 px-2">
+                    <img 
+                      src={image}
+                      alt={`Testimonio ${i + 1}`}
+                      className="rounded-xl shadow-lg w-full h-64 object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="space-y-6">
-              {[...Array(5)].map((_, i) => (
-                <img 
-                  key={i + 4}
-                  src={`https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop&seed=${i + 4}`}
-                  alt={`Testimonio ${i + 5}`}
-                  className="rounded-xl shadow-lg w-full hover:scale-105 transition-transform duration-300"
+            
+            {/* Controles del carrousel */}
+            <button 
+              onClick={prevTestimonial}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-200"
+            >
+              <ChevronLeft className="w-6 h-6 text-gray-600" />
+            </button>
+            
+            <button 
+              onClick={nextTestimonial}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-200"
+            >
+              <ChevronRight className="w-6 h-6 text-gray-600" />
+            </button>
+
+            {/* Indicadores */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {testimonialImages.slice(0, testimonialImages.length - 2).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentTestimonial(i)}
+                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                    currentTestimonial === i ? 'bg-cyan-500' : 'bg-gray-300'
+                  }`}
                 />
               ))}
             </div>
@@ -250,7 +310,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <Card className="max-w-5xl mx-auto shadow-2xl border-0">
             <CardContent className="p-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-900">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">
                 Dediqué Los Últimos 2 Años A Descifrar Esta Fórmula
               </h2>
               
@@ -284,7 +344,7 @@ const Index = () => {
                   <img 
                     src="/lovable-uploads/c4fa3858-f072-416b-a933-13edc1f37f6c.png" 
                     alt="Los 5 Pasos" 
-                    className="rounded-2xl shadow-xl mx-auto max-w-full"
+                    className="rounded-2xl shadow-xl mx-auto max-w-full max-w-md"
                   />
                 </div>
 
@@ -322,7 +382,7 @@ const Index = () => {
               <img 
                 src="/lovable-uploads/d91100a7-8fc2-4410-844b-148434201e77.png" 
                 alt="Mockups del curso" 
-                className="rounded-2xl shadow-2xl mx-auto max-w-full"
+                className="rounded-2xl shadow-2xl mx-auto max-w-full max-w-3xl"
               />
             </div>
 
@@ -330,6 +390,7 @@ const Index = () => {
             <div className="space-y-16">
               {[
                 {
+                  image: "/lovable-uploads/13561307-0c64-46c4-aa64-39396fdd7823.png",
                   step: "PASO #1: Abrí el cofre de Herramientas",
                   title: "LA LLAVE PARA DEJAR DE SENTIRTE INVISIBLE EN REDES",
                   description: "¿Te pasó alguna vez que subiste un video con toda la ilusión del mundo y... 423 views? Ahí llega la frustración de que el algoritmo te odia. La verdad es que las redes no están en tu contra, sino que estás hablando un idioma que el algoritmo no entiende.",
@@ -342,6 +403,7 @@ const Index = () => {
                   conclusion: "No más posteos al azar. Vas a entender cómo funciona este juego, y vas a tener la llave para jugarlo a tu favor."
                 },
                 {
+                  image: "/lovable-uploads/bd100388-8932-4bb3-954a-7a050b0c0925.png",
                   step: "PASO #2: ENCONTRÁ TU IDEA VIRAL",
                   title: "DEJÁ DE INVENTAR EN EL AIRE. CREA CON DIRECCIÓN.",
                   description: "¿Alguna vez te sentaste a crear contenido y… te quedaste en blanco? O peor… ¿tenías ideas, pero ninguna te convencía o sentías que ya estaba todo hecho? En este módulo te enseño a generar ideas que tengan potencial real de viralizarse.",
@@ -354,6 +416,7 @@ const Index = () => {
                   conclusion: "Acá empezás a crear con intención, no por intuición."
                 },
                 {
+                  image: "/lovable-uploads/a5a2ce66-34c8-4aae-84de-856c15715ec5.png",
                   step: "PASO #3: ESTRUCTURÁ TU MENSAJE",
                   title: "DECÍ LO QUE TENÉS QUE DECIR DE UNA MANERA QUE NO PUEDAN IGNORAR",
                   description: "Una gran idea mal contada… no se viraliza. ¿Querés que vean tu video hasta el final, lo compartan, lo guarden y lo comenten? Tenés que aprender a estructurar tu guión como un verdadero estratega.",
@@ -366,6 +429,7 @@ const Index = () => {
                   conclusion: "Vas a dejar de subir videos que nadie entiende o que se cortan justo cuando se ponían buenos."
                 },
                 {
+                  image: "/lovable-uploads/37b60711-53c0-475e-996f-92434c993a2a.png",
                   step: "PASO #4: GRABATE COMO UN REFERENTE",
                   title: "TU ENERGÍA Y TU PRESENCIA TAMBIÉN SE PUEDEN ENTRENAR",
                   description: "Muchas veces tenés una idea increíble, un guión buenísimo… Pero lo grabás y algo no se siente bien. Sentís que no transmitís lo que querías. Tranquila. No es tu culpa. Solo nadie te enseñó a comunicar con intención.",
@@ -378,6 +442,7 @@ const Index = () => {
                   conclusion: "Vas a pasar de 'se nota que está incómodo' a 'me atrapó desde que empezó a hablar'."
                 },
                 {
+                  image: "/lovable-uploads/993b0e75-dddb-4015-9472-03d0a3c1406c.png",
                   step: "PASO #5: EDITÁ, PUBLICÁ Y ORGANIZATE",
                   title: "SIN PLAN, NO HAY REPETICIÓN DE RESULTADOS.",
                   description: "Este es el paso que todos subestiman. ¿De qué sirve grabar si lo editás mal o perdés todos tus videos en carpetas desordenadas? Este módulo es donde todo se junta.",
@@ -393,11 +458,11 @@ const Index = () => {
                 <Card key={index} className="shadow-2xl border-0 overflow-hidden">
                   <CardContent className="p-0">
                     <div className="grid md:grid-cols-2 gap-0">
-                      <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 p-8 text-white flex items-center justify-center">
+                      <div className="bg-white p-8 flex items-center justify-center">
                         <img 
-                          src={`https://images.unsplash.com/photo-${index % 2 === 0 ? '1649972904349-6e44c42644a7' : '1486312338219-ce68d2c6f44d'}?w=400&h=300&fit=crop&seed=${index}`}
+                          src={module.image}
                           alt={`Módulo ${index + 1}`}
-                          className="rounded-xl shadow-lg max-w-full"
+                          className="rounded-xl shadow-lg max-w-full max-w-xs"
                         />
                       </div>
                       <div className="p-8">
@@ -425,12 +490,7 @@ const Index = () => {
             </div>
 
             <div className="text-center mt-16">
-              <CTAButton>
-                <div className="text-center">
-                  <div className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</div>
-                  <div className="text-sm opacity-90 mt-1">+3 Bonus Especiales, Por Tan Solo 47usd</div>
-                </div>
-              </CTAButton>
+              <CTAButton />
             </div>
           </div>
         </div>
@@ -440,7 +500,7 @@ const Index = () => {
       <section className="py-20 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
               🎁 Además, desbloqueás 3 BONUS exclusivos (totalmente GRATIS)
             </h2>
 
@@ -495,11 +555,11 @@ const Index = () => {
                       <span className="font-bold text-lg">{bonus.label}</span>
                     </div>
                     <div className="grid md:grid-cols-2 gap-0">
-                      <div className="bg-gradient-to-br from-cyan-100 to-cyan-200 p-8 flex items-center justify-center">
+                      <div className="bg-white p-8 flex items-center justify-center">
                         <img 
                           src={bonus.image}
                           alt={`Bonus ${index + 1}`}
-                          className="rounded-xl shadow-lg max-w-full"
+                          className="rounded-xl shadow-lg max-w-full max-w-xs"
                         />
                       </div>
                       <div className="p-8">
@@ -527,12 +587,7 @@ const Index = () => {
             </div>
 
             <div className="text-center mt-16">
-              <CTAButton>
-                <div className="text-center">
-                  <div className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</div>
-                  <div className="text-sm opacity-90 mt-1">+3 Bonus Especiales, Por Tan Solo 47usd</div>
-                </div>
-              </CTAButton>
+              <CTAButton />
             </div>
           </div>
         </div>
@@ -542,7 +597,7 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
               Esto Es Todo Lo Que Vas a Desbloquear Dentro de Unlock Viral
             </h2>
 
@@ -550,7 +605,7 @@ const Index = () => {
               <img 
                 src="/lovable-uploads/89fb2c1f-04f6-4af2-8d3d-e891bc97e143.png" 
                 alt="Mockups completos" 
-                className="rounded-2xl shadow-2xl mx-auto max-w-full"
+                className="rounded-2xl shadow-2xl mx-auto max-w-full max-w-4xl"
               />
             </div>
 
@@ -564,7 +619,7 @@ const Index = () => {
                 <div className="space-y-6 text-left max-w-4xl mx-auto mb-8">
                   {[
                     { title: "MÓDULO 1: ENTENDÉ EL JUEGO", desc: "Descubrí cómo funciona el algoritmo, cómo piensan las plataformas y por qué la viralidad es parte clave del embudo de ventas.", value: "$240 USD" },
-                    { title: "MÓDULO 2: ENCONTRÁ IDEAS QUE SE PUEDEN VIRALIZAR", desc: "Aprendé a encontrar temas irresistibles, analizar tendencias, y adaptar contenido sin copiar.", value: "$285 USD" },
+                    { title: "MÓDULO 2: ENCONTRÁ IDEAS QUE SE PUEDAN VIRALIZAR", desc: "Aprendé a encontrar temas irresistibles, analizar tendencias, y adaptar contenido sin copiar.", value: "$285 USD" },
                     { title: "MÓDULO 3: ESCRIBÍ GUIONES QUE RETIENEN", desc: "Te doy mis plantillas de guión y técnicas para mantener la atención hasta el final (y generar interacción real).", value: "$420 USD" },
                     { title: "MÓDULO 4: DOMINÁ TU PRESENCIA EN CÁMARA", desc: "Mejorá cómo te comunicás, usá tu lenguaje corporal y grabate con claridad y seguridad.", value: "$265 USD" },
                     { title: "MÓDULO 5: EDITÁ, PUBLICÁ Y ESCALÁ", desc: "Aprendé a editar sin complicarte, publicá con intención y organizá tu contenido para crecer sin quemarte.", value: "$360 USD" }
@@ -620,12 +675,7 @@ const Index = () => {
                   </div>
                 </div>
 
-                <CTAButton>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold">¡Quiero Desbloquear El Curso Ahora!</div>
-                    <div className="text-lg opacity-90 mt-2">+3 Bonus Especiales, Por Tan Solo 47usd</div>
-                  </div>
-                </CTAButton>
+                <CTAButton />
               </CardContent>
             </Card>
           </div>
@@ -673,12 +723,7 @@ const Index = () => {
           <p className="text-xl mb-8 opacity-90">
             Miles de personas ya están aplicando estos pasos. Es tu momento.
           </p>
-          <CTAButton className="bg-white text-cyan-600 hover:bg-gray-100">
-            <div className="text-center">
-              <div className="text-2xl font-bold">¡Quiero Desbloquear El Curso Ahora!</div>
-              <div className="text-lg mt-2">+3 Bonus Especiales, Por Tan Solo 47usd</div>
-            </div>
-          </CTAButton>
+          <CTAButton className="bg-white text-cyan-600 hover:bg-gray-100" />
         </div>
       </section>
     </div>
