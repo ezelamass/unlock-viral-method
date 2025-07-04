@@ -34,13 +34,7 @@ const Index = () => {
         className={`relative w-full max-w-lg mx-auto bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-bold py-8 px-8 rounded-2xl text-lg shadow-2xl transform hover:scale-105 transition-all duration-300 border-0 ${className}`}
         onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
       >
-        <div className="flex flex-col items-center gap-2">
-          <div className="flex items-center gap-3">
-            <Play className="w-6 h-6 animate-pulse" />
-            <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-          </div>
-          <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
-        </div>
+        {children}
       </Button>
     </div>
   );
@@ -148,7 +142,15 @@ const Index = () => {
               </div>
             </div>
 
-            <CTAButton />
+            <CTAButton>
+              <div className="flex flex-col items-center gap-2">
+                <div className="flex items-center gap-3">
+                  <Play className="w-6 h-6 animate-pulse" />
+                  <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                </div>
+                <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+              </div>
+            </CTAButton>
           </div>
         </div>
       </section>
@@ -228,7 +230,15 @@ const Index = () => {
               </div>
 
               <div className="pt-6">
-                <CTAButton />
+                <CTAButton>
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="flex items-center gap-3">
+                      <Play className="w-6 h-6 animate-pulse" />
+                      <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                    </div>
+                    <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+                  </div>
+                </CTAButton>
               </div>
             </div>
           </div>
@@ -490,7 +500,15 @@ const Index = () => {
             </div>
 
             <div className="text-center mt-16">
-              <CTAButton />
+              <CTAButton>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="flex items-center gap-3">
+                    <Play className="w-6 h-6 animate-pulse" />
+                    <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                  </div>
+                  <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+                </div>
+              </CTAButton>
             </div>
           </div>
         </div>
@@ -587,7 +605,15 @@ const Index = () => {
             </div>
 
             <div className="text-center mt-16">
-              <CTAButton />
+              <CTAButton>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="flex items-center gap-3">
+                    <Play className="w-6 h-6 animate-pulse" />
+                    <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                  </div>
+                  <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+                </div>
+              </CTAButton>
             </div>
           </div>
         </div>
@@ -675,7 +701,15 @@ const Index = () => {
                   </div>
                 </div>
 
-                <CTAButton />
+                <CTAButton>
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="flex items-center gap-3">
+                      <Play className="w-6 h-6 animate-pulse" />
+                      <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                    </div>
+                    <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+                  </div>
+                </CTAButton>
               </CardContent>
             </Card>
           </div>
@@ -723,7 +757,15 @@ const Index = () => {
           <p className="text-xl mb-8 opacity-90">
             Miles de personas ya están aplicando estos pasos. Es tu momento.
           </p>
-          <CTAButton className="bg-white text-cyan-600 hover:bg-gray-100" />
+          <CTAButton className="bg-white text-cyan-600 hover:bg-gray-100">
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex items-center gap-3">
+                <Play className="w-6 h-6 animate-pulse" />
+                <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+              </div>
+              <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+            </div>
+          </CTAButton>
         </div>
       </section>
     </div>
