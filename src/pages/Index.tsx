@@ -29,7 +29,7 @@ const Index = () => {
 
   const CTAButton = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
     <div className="relative group">
-      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
+      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:animate-glow"></div>
       <Button 
         className={`relative w-full max-w-lg mx-auto bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-bold py-8 px-8 rounded-2xl text-lg shadow-2xl transform hover:scale-105 transition-all duration-300 border-0 ${className}`}
         onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
@@ -122,7 +122,7 @@ const Index = () => {
               La llave Que Usan Los Influencers y Negocios Para Viralizarse
             </div>
             
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 leading-tight max-w-6xl mx-auto">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-8 leading-tight max-w-5xl mx-auto">
               Los 5 Pasos Que Me Llevó Años y Miles de Dólares Descubrir, Y Que Hoy Podés Aplicar Vos Para{" "}
               <span className="highlight-text">Crecer, Posicionarte Y Vender</span> Con Contenido
             </h1>
@@ -245,6 +245,33 @@ const Index = () => {
         </div>
       </section>
 
+      {/* New Target Section */}
+      <section className="py-16 bg-gradient-to-br from-cyan-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900">
+              🔍 Unlock Viral es para vos si…
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 text-left">
+              {[
+                "Sentís que hacés contenido pero nadie lo ve ni lo comparte.",
+                "Tenés ideas, pero te cuesta estructurarlas y grabarte con seguridad.",
+                "Querés crecer en redes, pero sin copiar lo que hacen todos.",
+                "Estás cansado de probar tips sueltos y querés una fórmula que funcione en serio."
+              ].map((item, index) => (
+                <div key={index} className="bg-white p-6 rounded-xl shadow-lg border border-cyan-100">
+                  <div className="flex items-start">
+                    <span className="text-cyan-500 font-bold mr-4 text-xl">✓</span>
+                    <p className="text-gray-700 text-lg leading-relaxed">{item}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section 1 - He ayudado a */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -354,7 +381,7 @@ const Index = () => {
                   <img 
                     src="/lovable-uploads/c4fa3858-f072-416b-a933-13edc1f37f6c.png" 
                     alt="Los 5 Pasos" 
-                    className="rounded-2xl shadow-xl mx-auto max-w-full max-w-md"
+                    className="rounded-2xl shadow-xl mx-auto max-w-full max-w-sm"
                   />
                 </div>
 
@@ -392,7 +419,7 @@ const Index = () => {
               <img 
                 src="/lovable-uploads/d91100a7-8fc2-4410-844b-148434201e77.png" 
                 alt="Mockups del curso" 
-                className="rounded-2xl shadow-2xl mx-auto max-w-full max-w-3xl"
+                className="rounded-2xl shadow-2xl mx-auto max-w-full max-w-2xl"
               />
             </div>
 
@@ -401,60 +428,60 @@ const Index = () => {
               {[
                 {
                   image: "/lovable-uploads/13561307-0c64-46c4-aa64-39396fdd7823.png",
-                  step: "PASO #1: Abrí el cofre de Herramientas",
+                  step: "🧰 PASO 1 – Abrí El Cofre: Entendé el juego antes de jugarlo mal.",
                   title: "LA LLAVE PARA DEJAR DE SENTIRTE INVISIBLE EN REDES",
-                  description: "¿Te pasó alguna vez que subiste un video con toda la ilusión del mundo y... 423 views? Ahí llega la frustración de que el algoritmo te odia. La verdad es que las redes no están en tu contra, sino que estás hablando un idioma que el algoritmo no entiende.",
+                  description: "¿Te pasó alguna vez que subiste un video con toda la ilusión del mundo y... 423 views?\nEl algoritmo no te odia. Solo no entiende tu idioma.\nAcá te enseño a hablarle claro, para que te muestre y te escuche.",
                   points: [
-                    "Cómo piensan las redes sociales y por qué premian ciertos videos",
-                    "Qué busca el algoritmo realmente (spoiler: no es estética, es retención)",
-                    "Por qué la viralidad es la primera etapa de tu embudo de ventas",
-                    "Las bases para dejar de improvisar y empezar a jugar estratégicamente"
+                    "Cómo piensa el algoritmo y por qué todavía no te muestra",
+                    "Qué busca el algoritmo en cada video (pista: no es la estética)",
+                    "Cómo usar la viralidad como puerta de entrada a las ventas",
+                    "La estrategia para dejar de subir por intuición y empezar a escalar con intención"
                   ],
                   conclusion: "No más posteos al azar. Vas a entender cómo funciona este juego, y vas a tener la llave para jugarlo a tu favor."
                 },
                 {
                   image: "/lovable-uploads/bd100388-8932-4bb3-954a-7a050b0c0925.png",
-                  step: "PASO #2: ENCONTRÁ TU IDEA VIRAL",
-                  title: "DEJÁ DE INVENTAR EN EL AIRE. CREA CON DIRECCIÓN.",
-                  description: "¿Alguna vez te sentaste a crear contenido y… te quedaste en blanco? O peor… ¿tenías ideas, pero ninguna te convencía o sentías que ya estaba todo hecho? En este módulo te enseño a generar ideas que tengan potencial real de viralizarse.",
+                  step: "PASO #2: Encontrá Tu Idea Viral: Dejá de tirar ideas al aire y empezá a crear con intención.",
+                  title: "Deja de improvisar, el algoritmo no sabe a quién mostrarte.",
+                  description: "¿Alguna vez te sentaste a grabar y no supiste por dónde empezar?\n¿O tenías varias ideas... pero ninguna te convencía?\n\nEsa incertidumbre te frena más de lo que pensás.\n\nEn este módulo vas a aprender a detectar ideas con potencial real de viralidad, adaptarlas a tu estilo, y encontrar oportunidades incluso en lo que hoy estás pasando por alto.\n\nNada de copiar. Nada de repetir fórmulas vacías.\nAcá empezás a crear con dirección, no con dudas.",
                   points: [
                     "Cómo generar ideas virales sin copiar",
-                    "Dónde buscar inspiración real (y qué mirar)",
-                    "Cómo adaptar contenido de otros sin perder tu esencia",
-                    "Checklist para saber si tu idea tiene chance de explotar"
+                    "Dónde encontrar inspiración real, basta de scrollear sin rumbo",
+                    "Cómo adaptar contenido de otros",
+                    "Checklist para validar si tu idea tiene el potencial de explotar antes de grabar"
                   ],
-                  conclusion: "Acá empezás a crear con intención, no por intuición."
+                  conclusion: "No necesitás más ideas. Necesitás saber cuál vale la pena.\nAcá empezás a crear con intención, no por intuición."
                 },
                 {
                   image: "/lovable-uploads/a5a2ce66-34c8-4aae-84de-856c15715ec5.png",
-                  step: "PASO #3: ESTRUCTURÁ TU MENSAJE",
-                  title: "DECÍ LO QUE TENÉS QUE DECIR DE UNA MANERA QUE NO PUEDAN IGNORAR",
-                  description: "Una gran idea mal contada… no se viraliza. ¿Querés que vean tu video hasta el final, lo compartan, lo guarden y lo comenten? Tenés que aprender a estructurar tu guión como un verdadero estratega.",
+                  step: "PASO 3 – Estructurá Tu Mensaje: Aprendé a decirlo como alguien que quiere ser escuchado.",
+                  title: "No es lo que decís. Es cómo lo decís lo que hace que te escuchen.",
+                  description: "Seguro alguna vez tuviste una buena idea, pero cuando la grabaste y publicaste… no generó nada.\n\nNi likes, ni compartidos, ni comentarios.\n\nEl problema no era la idea. Era cómo la dijiste.\n\nEn este módulo vas a aprender a estructurar tus guiones para captar atención desde el primer segundo, mantenerla hasta el final y provocar interacción real.\n\nNo es actuar, es saber cómo guiar la atención segundo a segundo.",
                   points: [
                     "Cómo escribir guiones con estructura viral",
-                    "Técnicas de retención y emoción que generan interacción",
-                    "Hooks que capturan la atención en 3 segundos o menos",
-                    "Plantillas listas para usar y adaptar a tu contenido"
+                    "Técnicas de retención y emoción",
+                    "Hooks para enganchar desde el segundo uno",
+                    "Plantillas listas para tener todo claro desde el comienzo"
                   ],
                   conclusion: "Vas a dejar de subir videos que nadie entiende o que se cortan justo cuando se ponían buenos."
                 },
                 {
                   image: "/lovable-uploads/37b60711-53c0-475e-996f-92434c993a2a.png",
-                  step: "PASO #4: GRABATE COMO UN REFERENTE",
-                  title: "TU ENERGÍA Y TU PRESENCIA TAMBIÉN SE PUEDEN ENTRENAR",
-                  description: "Muchas veces tenés una idea increíble, un guión buenísimo… Pero lo grabás y algo no se siente bien. Sentís que no transmitís lo que querías. Tranquila. No es tu culpa. Solo nadie te enseñó a comunicar con intención.",
+                  step: "🎥 PASO 4 – Grabate Como Un Referente: Mostrate con seguridad, incluso si nunca te sentiste cómodo frente a cámara.",
+                  title: "Tu presencia también se puede entrenar. Y cuando aparece, se nota.",
+                  description: "¿Tenés una buena idea y un guión sólido… pero al grabarte, no se siente bien?\n¿Sentís que no transmitís lo que querías, que algo se pierde en cámara?\n\nTranquila. No es tu culpa. Solo nadie te enseñó a comunicar con intención.\n\nEn este módulo vas a aprender a comunicar con presencia, claridad y confianza, sin actuar ni forzar nada.\nPorque mostrarte no debería ser un peso… sino una herramienta.",
                   points: [
-                    "Lenguaje corporal y expresividad frente a cámara",
-                    "Cómo modular tu voz para impactar (sin sobreactuar)",
-                    "Técnicas para hablar natural y con claridad",
-                    "Tips para grabarte sin inseguridad y sin trabarte"
+                    "Cómo usar el lenguaje corporal y tus expresiones para transmitir con claridad",
+                    "Técnicas para sentirte cómodo frente a cámara, incluso si hoy no te gusta cómo salís",
+                    "Herramientas para hablar natural, sin trabarte ni olvidar lo que querías decir",
+                    "Tips para grabarte sin inseguridad y empezar a disfrutar el proceso"
                   ],
                   conclusion: "Vas a pasar de 'se nota que está incómodo' a 'me atrapó desde que empezó a hablar'."
                 },
                 {
                   image: "/lovable-uploads/993b0e75-dddb-4015-9472-03d0a3c1406c.png",
-                  step: "PASO #5: EDITÁ, PUBLICÁ Y ORGANIZATE",
-                  title: "SIN PLAN, NO HAY REPETICIÓN DE RESULTADOS.",
+                  step: "🧩 PASO 5 – Editá, Publicá y Organizate: Creá contenido sin sentirte desbordado ni improvisar nunca más.",
+                  title: "Sin un plan, no hay repetición de resultados. Y sin repetición, no hay crecimiento.",
                   description: "Este es el paso que todos subestiman. ¿De qué sirve grabar si lo editás mal o perdés todos tus videos en carpetas desordenadas? Este módulo es donde todo se junta.",
                   points: [
                     "Cómo editar con ritmo aunque no seas experta",
@@ -462,7 +489,7 @@ const Index = () => {
                     "Cómo organizar tus guiones, videos y posteos en Drive",
                     "Cómo mantener constancia sin sacrificar tu salud mental"
                   ],
-                  conclusion: "Este es el módulo que convierte tu talento en resultados reales y sostenibles."
+                  conclusion: "Vas a dejar de 'hacer lo que podés' para empezar a crear con un plan que podés sostener en el tiempo. Convirtiendo tu talento en resultados reales y sostenibles."
                 }
               ].map((module, index) => (
                 <Card key={index} className="shadow-2xl border-0 overflow-hidden">
@@ -480,7 +507,7 @@ const Index = () => {
                           {module.step}
                         </div>
                         <h3 className="text-2xl font-bold mb-4 text-gray-900">{module.title}</h3>
-                        <p className="text-gray-700 mb-6">{module.description}</p>
+                        <p className="text-gray-700 mb-6 whitespace-pre-line">{module.description}</p>
                         <ul className="space-y-3 mb-6">
                           {module.points.map((point, pointIndex) => (
                             <li key={pointIndex} className="flex items-start">
@@ -489,7 +516,7 @@ const Index = () => {
                             </li>
                           ))}
                         </ul>
-                        <p className="text-gray-800 font-semibold bg-cyan-50 p-4 rounded-xl">
+                        <p className="text-gray-800 font-semibold bg-cyan-50 p-4 rounded-xl whitespace-pre-line">
                           {module.conclusion}
                         </p>
                       </div>
@@ -631,7 +658,7 @@ const Index = () => {
               <img 
                 src="/lovable-uploads/89fb2c1f-04f6-4af2-8d3d-e891bc97e143.png" 
                 alt="Mockups completos" 
-                className="rounded-2xl shadow-2xl mx-auto max-w-full max-w-4xl"
+                className="rounded-2xl shadow-2xl mx-auto max-w-full max-w-3xl"
               />
             </div>
 
@@ -701,15 +728,21 @@ const Index = () => {
                   </div>
                 </div>
 
-                <CTAButton>
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="flex items-center gap-3">
-                      <Play className="w-6 h-6 animate-pulse" />
-                      <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-300 group-hover:animate-glow"></div>
+                  <Button 
+                    className="relative w-full max-w-2xl mx-auto bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-bold py-12 px-12 rounded-3xl text-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
+                    onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
+                  >
+                    <div className="flex flex-col items-center gap-4">
+                      <div className="flex items-center gap-4">
+                        <Play className="w-8 h-8 animate-pulse" />
+                        <span className="text-2xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                      </div>
+                      <div className="text-lg opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
                     </div>
-                    <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
-                  </div>
-                </CTAButton>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -724,20 +757,20 @@ const Index = () => {
             
             <div className="space-y-4">
               {faqData.map((faq, index) => (
-                <Card key={index} className="shadow-lg border-0">
+                <Card key={index} className="shadow-xl border-0 overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-300">
                   <CardContent className="p-0">
                     <button
-                      className="w-full p-6 text-left font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center"
+                      className="w-full p-8 text-left font-bold text-xl text-gray-900 hover:bg-gradient-to-r hover:from-cyan-50 hover:to-transparent transition-all duration-300 flex justify-between items-center"
                       onClick={() => toggleFaq(index)}
                     >
-                      {faq.question}
-                      <span className={`transform transition-transform duration-200 ${expandedFaq === index ? 'rotate-180' : ''}`}>
+                      <span>{faq.question}</span>
+                      <span className={`transform transition-transform duration-300 text-cyan-500 text-2xl ${expandedFaq === index ? 'rotate-180' : ''}`}>
                         ▼
                       </span>
                     </button>
                     {expandedFaq === index && (
-                      <div className="px-6 pb-6">
-                        <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                      <div className="px-8 pb-8 bg-gradient-to-r from-cyan-50 to-transparent">
+                        <p className="text-gray-700 leading-relaxed text-lg">{faq.answer}</p>
                       </div>
                     )}
                   </CardContent>
@@ -768,6 +801,23 @@ const Index = () => {
           </CTAButton>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-8 bg-gray-900 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gray-400">
+            Diseñado por{" "}
+            <a 
+              href="https://advantx.co" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200"
+            >
+              AdvantX
+            </a>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
