@@ -1,7 +1,8 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { Play, ChevronLeft, ChevronRight, Lock, Key, Unlock } from "lucide-react";
 
 const Index = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -27,14 +28,21 @@ const Index = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonialImages.length) % testimonialImages.length);
   };
 
-  const CTAButton = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+  const CTAButton = ({ children, className = "", isLast = false }: { children: React.ReactNode; className?: string; isLast?: boolean }) => (
     <div className="relative group">
-      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:animate-glow"></div>
+      <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-cyan-500 to-purple-600 rounded-3xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:animate-pulse"></div>
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-500 rounded-3xl blur-sm opacity-40 group-hover:opacity-80 transition-all duration-300"></div>
       <Button 
-        className={`relative w-full max-w-lg mx-auto bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-bold py-8 px-8 rounded-2xl text-lg shadow-2xl transform hover:scale-105 transition-all duration-300 border-0 ${className}`}
+        className={`relative w-full max-w-lg mx-auto ${
+          isLast 
+            ? 'bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700' 
+            : 'bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700'
+        } text-white font-bold py-6 md:py-8 px-6 md:px-8 rounded-3xl text-base md:text-lg shadow-2xl transform hover:scale-105 transition-all duration-300 border-0 ${className}`}
         onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
       >
-        {children}
+        <div className="relative z-10">
+          {children}
+        </div>
       </Button>
     </div>
   );
@@ -108,31 +116,60 @@ const Index = () => {
             <img 
               src="/lovable-uploads/d52eb172-4f26-4f4a-919d-72050880f3b8.png" 
               alt="Unlock Viral Logo" 
-              className="h-10 object-contain"
+              className="h-8 md:h-10 object-contain"
             />
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-12 bg-gradient-to-br from-cyan-50 to-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-8 md:py-12 bg-gradient-to-br from-cyan-50 to-white relative overflow-hidden">
+        {/* Background Icons */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 text-cyan-200 opacity-20">
+            <Lock className="w-8 h-8 animate-float" />
+          </div>
+          <div className="absolute top-32 right-20 text-purple-200 opacity-20">
+            <Key className="w-6 h-6 animate-bounce-subtle" />
+          </div>
+          <div className="absolute bottom-40 left-20 text-cyan-200 opacity-20">
+            <Unlock className="w-7 h-7 animate-pulse" />
+          </div>
+          <div className="absolute top-60 right-10 text-purple-200 opacity-20">
+            <Lock className="w-5 h-5 animate-float" />
+          </div>
+          <div className="absolute bottom-20 right-32 text-cyan-200 opacity-20">
+            <Key className="w-9 h-9 animate-bounce-subtle" />
+          </div>
+          <div className="absolute top-80 left-32 text-purple-200 opacity-20">
+            <Unlock className="w-6 h-6 animate-pulse" />
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-6xl mx-auto animate-fade-in">
-            <div className="bg-cyan-100 text-cyan-800 px-6 py-3 rounded-full inline-block mb-6 font-semibold text-sm">
+            <div className="bg-cyan-100 text-cyan-800 px-4 md:px-6 py-2 md:py-3 rounded-full inline-block mb-4 md:mb-6 font-semibold text-xs md:text-sm">
               La llave Que Usan Los Influencers y Negocios Para Viralizarse
             </div>
             
-            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-8 leading-tight max-w-5xl mx-auto">
-              Los 5 Pasos Que Me Llevó Años y Miles de Dólares Descubrir, Y Que Hoy Podés Aplicar Vos Para{" "}
-              <span className="highlight-text">Crecer, Posicionarte Y Vender</span> Con Contenido
+            <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight max-w-5xl mx-auto px-2">
+              LA LLAVE QUE DESBLOQUEA VIRALIDAD REAL EN REDES
             </h1>
 
+            <h2 className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-700 mb-6 md:mb-8 leading-relaxed max-w-4xl mx-auto px-2">
+              Los 5 Pasos Que Me Llevaron De 0 A +100K Seguidores Y Hoy Podés Usar Para Vender Con Tu Contenido
+            </h2>
+
+            <div className="bg-red-100 border border-red-300 text-red-800 px-4 md:px-6 py-3 md:py-4 rounded-xl inline-block mb-6 md:mb-8 font-semibold text-sm md:text-base max-w-3xl mx-auto">
+              <strong>IMPORTANTE:</strong> "Mirá hasta el final si querés saber cómo conseguirlo con el mismo sistema que YA usan mis alumnos."
+            </div>
+
             {/* Video Section */}
-            <div className="relative max-w-2xl mx-auto mb-8">
+            <div className="relative max-w-2xl mx-auto mb-6 md:mb-8 px-4">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
                 <div className="aspect-video">
                   <iframe 
-                    src="https://www.youtube.com/embed/2X7B8dKxxGE?si=dMy0_83iGdhUzRjz"
+                    src="https://www.youtube.com/embed/2X7B8dKxxGE"
                     title="Unlock Viral VSL"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -145,10 +182,10 @@ const Index = () => {
             <CTAButton>
               <div className="flex flex-col items-center gap-2">
                 <div className="flex items-center gap-3">
-                  <Play className="w-6 h-6 animate-pulse" />
-                  <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                  <Play className="w-5 md:w-6 h-5 md:h-6 animate-pulse" />
+                  <span className="text-lg md:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
                 </div>
-                <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+                <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
               </div>
             </CTAButton>
           </div>
@@ -156,34 +193,36 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="animate-fade-in order-2 md:order-1">
               <img 
                 src="/lovable-uploads/9dacb8c7-8bf2-496c-9f71-9c1d73de4f6e.png" 
                 alt="Araceli Prudente" 
-                className="rounded-3xl shadow-2xl w-full max-w-sm mx-auto"
+                className="rounded-3xl shadow-2xl w-full max-w-xs md:max-w-sm mx-auto"
               />
             </div>
             
-            <div className="space-y-4 text-base">
+            <div className="space-y-4 text-sm md:text-base order-1 md:order-2">
               <p className="text-gray-700">
-                Mi nombre es <strong><span className="highlight-text">Araceli Prudente</span></strong> y hace 2 años entré al mundo digital con una misión clara: aprender todo lo que pudiera sobre <span className="text-cyan-600 font-semibold">contenido</span>, <span className="text-cyan-600 font-semibold">viralidad</span> y <span className="text-cyan-600 font-semibold">crecimiento orgánico</span>… y aplicarlo hasta volverme referente.
+                <strong><span className="highlight-text">Soy Araceli Prudente.</span></strong>
               </p>
               
-              <p className="text-gray-700">Crecí rápido, pero no fue casualidad.</p>
+              <p className="text-gray-700">
+                No me hice viral de casualidad, me hice viral porque estudié y <strong>EXPERIMENTÉ</strong> cómo hacerlo.
+              </p>
               
               <p className="text-gray-700">
-                Estudié <strong><span className="text-cyan-600">Licenciatura en Publicidad</span></strong>, invertí en <strong><span className="text-cyan-600">mentorías</span></strong>, y trabajé con más de <strong><span className="text-cyan-600">21 marcas y creadores</span></strong> de distintos nichos y países, creando estrategias de contenido que generaron <strong><span className="text-cyan-600">resultados reales y medibles</span></strong>.
+                Hace dos años arranqué en el mundo digital con una sola obsesión: entender qué hace que un contenido <strong>EXPLOTE</strong>.
               </p>
 
-              <div className="bg-cyan-50 p-6 rounded-xl">
-                <p className="font-semibold text-gray-800 mb-4">Además:</p>
+              <div className="bg-cyan-50 p-4 md:p-6 rounded-xl">
+                <p className="font-semibold text-gray-800 mb-4">Hoy:</p>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
                     <span className="text-cyan-500 font-bold mr-3">•</span>
-                    Formé a más de 300 alumnos,
+                    Formé a más de 300 alumnos con resultados,
                   </li>
                   <li className="flex items-start">
                     <span className="text-cyan-500 font-bold mr-3">•</span>
@@ -191,38 +230,31 @@ const Index = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="text-cyan-500 font-bold mr-3">•</span>
-                    Logré algo que muy pocas personas consiguen: hacerme un nombre en la industria del marketing digital desde cero siendo mujer, solo con contenido.
+                    trabajé con más de 21 marcas y creadores de distintos nichos y países
                   </li>
-                </ul>
-              </div>
-
-              <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white p-6 rounded-xl">
-                <p className="font-semibold mb-4">Gracias a eso:</p>
-                <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="text-cyan-200 font-bold mr-3">•</span>
+                    <span className="text-cyan-500 font-bold mr-3">•</span>
+                    Logré hacerme un nombre en la industria del marketing digital desde cero siendo mujer.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-500 font-bold mr-3">•</span>
                     Generé +800.000 dólares para mis clientes
                   </li>
-                  <li className="flex items-start">
-                    <span className="text-cyan-200 font-bold mr-3">•</span>
-                    Ayudé a personas que nunca se animaban a mostrar su cara, a convertirse en creadores
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-cyan-200 font-bold mr-3">•</span>
-                    Y creé una comunidad que no solo me sigue, sino que me agradece por cambiarles la vida
-                  </li>
                 </ul>
               </div>
 
-              <div className="bg-gray-50 p-6 rounded-xl">
+              <div className="bg-gray-50 p-4 md:p-6 rounded-xl">
                 <p className="text-gray-700 mb-4">
                   Y no, no te doy hacks vacíos como qué hashtag tenes que poner.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  Te entrego <strong><span className="highlight-text">el método exacto</span></strong> que yo misma usé para viralizar, crecer y posicionarme. El mismo que aplican hoy creadores de contenido, emprendedores y alumnos míos que pagaron hasta <strong><span className="text-cyan-600">$2.000 USD por aprenderlo en mentorías 1 a 1</span></strong>.
+                  Desarrollé un método replicable que hoy usan creadores, emprendedores y profesionales que pagan hasta <strong><span className="text-cyan-600">2.000 USD en otras mentorías 1 a 1</span></strong>.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  Hoy, por primera vez, <strong><span className="highlight-text">lo empaqué en un curso accesible y directo al grano</span></strong>.
+                  Por primera vez, <strong><span className="highlight-text">lo empaqué en un curso directo al grano. Accesible. Efectivo.</span></strong>
+                </p>
+                <p className="text-gray-700 mb-4">
+                  Si querés dejar de probar al azar y empezar a crear contenido que realmente funcione, esto es para vos.
                 </p>
                 <p className="text-gray-700 font-semibold">
                   Y si estás leyendo esto, podés desbloquearlo ahora.
@@ -233,10 +265,10 @@ const Index = () => {
                 <CTAButton>
                   <div className="flex flex-col items-center gap-2">
                     <div className="flex items-center gap-3">
-                      <Play className="w-6 h-6 animate-pulse" />
-                      <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                      <Play className="w-5 md:w-6 h-5 md:h-6 animate-pulse" />
+                      <span className="text-lg md:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
                     </div>
-                    <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+                    <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
                   </div>
                 </CTAButton>
               </div>
@@ -246,24 +278,24 @@ const Index = () => {
       </section>
 
       {/* New Target Section */}
-      <section className="py-16 bg-gradient-to-br from-cyan-50 to-white">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-gray-900">
               🔍 Unlock Viral es para vos si…
             </h2>
             
-            <div className="grid md:grid-cols-2 gap-8 text-left">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-left">
               {[
                 "Sentís que hacés contenido pero nadie lo ve ni lo comparte.",
                 "Tenés ideas, pero te cuesta estructurarlas y grabarte con seguridad.",
                 "Querés crecer en redes, pero sin copiar lo que hacen todos.",
                 "Estás cansado de probar tips sueltos y querés una fórmula que funcione en serio."
               ].map((item, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-lg border border-cyan-100">
+                <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-cyan-100">
                   <div className="flex items-start">
-                    <span className="text-cyan-500 font-bold mr-4 text-xl">✓</span>
-                    <p className="text-gray-700 text-lg leading-relaxed">{item}</p>
+                    <span className="text-cyan-500 font-bold mr-4 text-lg md:text-xl">✓</span>
+                    <p className="text-gray-700 text-sm md:text-lg leading-relaxed">{item}</p>
                   </div>
                 </div>
               ))}
@@ -273,9 +305,9 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section 1 - He ayudado a */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">He ayudado a...</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900">He ayudado a...</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-6xl mx-auto">
             {helpedImages.map((image, i) => (
               <img 
@@ -289,11 +321,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section 2 - Carrousel */}
-      <section className="py-16 bg-white">
+      {/* Testimonials Section 2 - Carrousel/Vertical */}
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Algunos Testimonios...</h2>
-          <div className="relative max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900">Algunos Testimonios...</h2>
+          
+          {/* Desktop Carousel */}
+          <div className="hidden md:block relative max-w-6xl mx-auto">
             <div className="overflow-hidden rounded-2xl">
               <div 
                 className="flex transition-transform duration-500 ease-in-out"
@@ -339,23 +373,35 @@ const Index = () => {
               ))}
             </div>
           </div>
+
+          {/* Mobile Vertical Grid */}
+          <div className="md:hidden grid grid-cols-1 gap-4 max-w-sm mx-auto">
+            {testimonialImages.slice(0, 6).map((image, i) => (
+              <img 
+                key={i}
+                src={image}
+                alt={`Testimonio ${i + 1}`}
+                className="rounded-xl shadow-lg w-full h-48 object-cover"
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Formula Introduction */}
-      <section className="py-20 bg-gradient-to-br from-cyan-50 to-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto px-4">
           <Card className="max-w-5xl mx-auto shadow-2xl border-0">
-            <CardContent className="p-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">
+            <CardContent className="p-6 md:p-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 md:mb-8 text-gray-900">
                 Dediqué Los Últimos 2 Años A Descifrar Esta Fórmula
               </h2>
               
-              <p className="text-xl text-center mb-8 font-semibold text-gray-800">
+              <p className="text-lg md:text-xl text-center mb-6 md:mb-8 font-semibold text-gray-800">
                 <strong>Y NADA me ayudó más a crecer mi marca personal y escalar mi negocio que lo que enseño en <em className="highlight-text">Unlock Viral</em>.</strong>
               </p>
 
-              <div className="space-y-6 text-lg text-gray-700 max-w-4xl mx-auto">
+              <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-700 max-w-4xl mx-auto">
                 <p>
                   Empecé en redes porque sabía que, si quería escalar mi agencia y convertirme en una referente, <strong>tenía que hacerme visible, viral y deseada.</strong>
                 </p>
@@ -368,21 +414,13 @@ const Index = () => {
                   Hasta que logré ordenar todo lo que funciona en <strong>una fórmula concreta, accionable y simple</strong>.
                 </p>
 
-                <div className="bg-cyan-100 p-8 rounded-2xl text-center my-8">
-                  <p className="text-2xl font-bold text-cyan-800">
+                <div className="bg-cyan-100 p-6 md:p-8 rounded-2xl text-center my-6 md:my-8">
+                  <p className="text-xl md:text-2xl font-bold text-cyan-800">
                     Unlock Viral no es otro curso de contenido.
                   </p>
-                  <p className="text-xl text-cyan-700 mt-4">
+                  <p className="text-lg md:text-xl text-cyan-700 mt-4">
                     Es la llave que desbloqueó mi visibilidad, mi posicionamiento y mis ventas.
                   </p>
-                </div>
-
-                <div className="text-center my-12">
-                  <img 
-                    src="/lovable-uploads/c4fa3858-f072-416b-a933-13edc1f37f6c.png" 
-                    alt="Los 5 Pasos" 
-                    className="rounded-2xl shadow-xl mx-auto max-w-full max-w-sm"
-                  />
                 </div>
 
                 <p>
@@ -393,16 +431,16 @@ const Index = () => {
                   Desde que uso este sistema, <strong>mi marca personal no dejó de crecer</strong>, mi comunidad se volvió sólida y empecé a generar resultados no solo para mí, sino también para las alumnas que aplican esta fórmula con compromiso.
                 </p>
 
-                <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white p-8 rounded-2xl text-center">
-                  <p className="text-xl mb-4">Hoy te doy acceso a esa fórmula:</p>
-                  <p className="text-2xl font-bold mb-4">
+                <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white p-6 md:p-8 rounded-2xl text-center">
+                  <p className="text-lg md:text-xl mb-4">Hoy te doy acceso a esa fórmula:</p>
+                  <p className="text-xl md:text-2xl font-bold mb-4">
                     Los <span className="text-cyan-200">5 pasos exactos</span> que me llevaron a diferenciarme, ser escuchada, generar deseo… y vender.
                   </p>
-                  <p className="text-lg mb-4">
+                  <p className="text-base md:text-lg mb-4">
                     Los mismos por los que muchos me han pagado mentorías personalizadas de hasta $2.000 USD…
                   </p>
-                  <p className="text-2xl font-bold">
-                    Y que hoy te entrego prácticamente <span className="text-cyan-200">regalados por solo $47.</span>
+                  <p className="text-xl md:text-2xl font-bold">
+                    Y que hoy te entrego prácticamente <span className="text-cyan-200">regalados por solo $67.</span>
                   </p>
                 </div>
               </div>
@@ -412,19 +450,19 @@ const Index = () => {
       </section>
 
       {/* Course Content */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 md:mb-16">
               <img 
-                src="/lovable-uploads/d91100a7-8fc2-4410-844b-148434201e77.png" 
-                alt="Mockups del curso" 
-                className="rounded-2xl shadow-2xl mx-auto max-w-full max-w-2xl"
+                src="/lovable-uploads/c4fa3858-f072-416b-a933-13edc1f37f6c.png" 
+                alt="Los 5 Pasos" 
+                className="rounded-2xl shadow-xl mx-auto max-w-full w-64 md:w-80"
               />
             </div>
 
             {/* Modules */}
-            <div className="space-y-16">
+            <div className="space-y-12 md:space-y-16">
               {[
                 {
                   image: "/lovable-uploads/13561307-0c64-46c4-aa64-39396fdd7823.png",
@@ -495,28 +533,28 @@ const Index = () => {
                 <Card key={index} className="shadow-2xl border-0 overflow-hidden">
                   <CardContent className="p-0">
                     <div className="grid md:grid-cols-2 gap-0">
-                      <div className="bg-white p-8 flex items-center justify-center">
+                      <div className="bg-white p-6 md:p-8 flex items-center justify-center">
                         <img 
                           src={module.image}
                           alt={`Módulo ${index + 1}`}
-                          className="rounded-xl shadow-lg max-w-full max-w-xs"
+                          className="rounded-xl shadow-lg max-w-full w-48 md:w-72"
                         />
                       </div>
-                      <div className="p-8">
-                        <div className="bg-cyan-100 text-cyan-800 px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">
+                      <div className="p-6 md:p-8">
+                        <div className="bg-cyan-100 text-cyan-800 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 inline-block">
                           {module.step}
                         </div>
-                        <h3 className="text-2xl font-bold mb-4 text-gray-900">{module.title}</h3>
-                        <p className="text-gray-700 mb-6 whitespace-pre-line">{module.description}</p>
-                        <ul className="space-y-3 mb-6">
+                        <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">{module.title}</h3>
+                        <p className="text-gray-700 mb-4 md:mb-6 whitespace-pre-line text-sm md:text-base">{module.description}</p>
+                        <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                           {module.points.map((point, pointIndex) => (
                             <li key={pointIndex} className="flex items-start">
-                              <span className="text-cyan-500 font-bold mr-3 text-lg">✔️</span>
-                              <span className="text-gray-700">{point}</span>
+                              <span className="text-cyan-500 font-bold mr-3 text-base md:text-lg">✔️</span>
+                              <span className="text-gray-700 text-sm md:text-base">{point}</span>
                             </li>
                           ))}
                         </ul>
-                        <p className="text-gray-800 font-semibold bg-cyan-50 p-4 rounded-xl whitespace-pre-line">
+                        <p className="text-gray-800 font-semibold bg-cyan-50 p-3 md:p-4 rounded-xl whitespace-pre-line text-sm md:text-base">
                           {module.conclusion}
                         </p>
                       </div>
@@ -526,14 +564,14 @@ const Index = () => {
               ))}
             </div>
 
-            <div className="text-center mt-16">
+            <div className="text-center mt-12 md:mt-16">
               <CTAButton>
                 <div className="flex flex-col items-center gap-2">
                   <div className="flex items-center gap-3">
-                    <Play className="w-6 h-6 animate-pulse" />
-                    <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                    <Play className="w-5 md:w-6 h-5 md:h-6 animate-pulse" />
+                    <span className="text-lg md:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
                   </div>
-                  <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+                  <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
                 </div>
               </CTAButton>
             </div>
@@ -542,14 +580,14 @@ const Index = () => {
       </section>
 
       {/* Bonuses Section */}
-      <section className="py-20 bg-gradient-to-br from-cyan-50 to-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 md:mb-16 text-gray-900">
               🎁 Además, desbloqueás 3 BONUS exclusivos (totalmente GRATIS)
             </h2>
 
-            <div className="space-y-12">
+            <div className="space-y-8 md:space-y-12">
               {[
                 {
                   label: "BONUS #1",
@@ -596,32 +634,32 @@ const Index = () => {
               ].map((bonus, index) => (
                 <Card key={index} className="shadow-2xl border-0 overflow-hidden">
                   <CardContent className="p-0">
-                    <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 text-center">
-                      <span className="font-bold text-lg">{bonus.label}</span>
+                    <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-3 md:p-4 text-center">
+                      <span className="font-bold text-base md:text-lg">{bonus.label}</span>
                     </div>
                     <div className="grid md:grid-cols-2 gap-0">
-                      <div className="bg-white p-8 flex items-center justify-center">
+                      <div className="bg-white p-6 md:p-8 flex items-center justify-center">
                         <img 
                           src={bonus.image}
                           alt={`Bonus ${index + 1}`}
-                          className="rounded-xl shadow-lg max-w-full max-w-xs"
+                          className="rounded-xl shadow-lg max-w-full w-48 md:w-72"
                         />
                       </div>
-                      <div className="p-8">
-                        <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">
+                      <div className="p-6 md:p-8">
+                        <div className="bg-yellow-100 text-yellow-800 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 inline-block">
                           {bonus.step}
                         </div>
-                        <h3 className="text-2xl font-bold mb-4 text-gray-900">{bonus.title}</h3>
-                        <p className="text-gray-700 mb-6">{bonus.description}</p>
-                        <ul className="space-y-3 mb-6">
+                        <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">{bonus.title}</h3>
+                        <p className="text-gray-700 mb-4 md:mb-6 text-sm md:text-base">{bonus.description}</p>
+                        <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                           {bonus.points.map((point, pointIndex) => (
                             <li key={pointIndex} className="flex items-start">
-                              <span className="text-yellow-500 font-bold mr-3 text-lg">✔️</span>
-                              <span className="text-gray-700">{point}</span>
+                              <span className="text-yellow-500 font-bold mr-3 text-base md:text-lg">✔️</span>
+                              <span className="text-gray-700 text-sm md:text-base">{point}</span>
                             </li>
                           ))}
                         </ul>
-                        <p className="text-gray-800 font-semibold bg-yellow-50 p-4 rounded-xl">
+                        <p className="text-gray-800 font-semibold bg-yellow-50 p-3 md:p-4 rounded-xl text-sm md:text-base">
                           {bonus.conclusion}
                         </p>
                       </div>
@@ -631,14 +669,14 @@ const Index = () => {
               ))}
             </div>
 
-            <div className="text-center mt-16">
+            <div className="text-center mt-12 md:mt-16">
               <CTAButton>
                 <div className="flex flex-col items-center gap-2">
                   <div className="flex items-center gap-3">
-                    <Play className="w-6 h-6 animate-pulse" />
-                    <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                    <Play className="w-5 md:w-6 h-5 md:h-6 animate-pulse" />
+                    <span className="text-lg md:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
                   </div>
-                  <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+                  <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
                 </div>
               </CTAButton>
             </div>
@@ -647,29 +685,29 @@ const Index = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8 text-gray-900">
               Esto Es Todo Lo Que Vas a Desbloquear Dentro de Unlock Viral
             </h2>
 
-            <div className="mb-12">
+            <div className="mb-8 md:mb-12">
               <img 
                 src="/lovable-uploads/89fb2c1f-04f6-4af2-8d3d-e891bc97e143.png" 
                 alt="Mockups completos" 
-                className="rounded-2xl shadow-2xl mx-auto max-w-full max-w-3xl"
+                className="rounded-2xl shadow-2xl mx-auto max-w-full w-80 md:w-96"
               />
             </div>
 
             <Card className="shadow-2xl border-0 bg-gradient-to-br from-gray-50 to-white">
-              <CardContent className="p-12">
-                <p className="text-xl text-gray-700 mb-8">
+              <CardContent className="p-6 md:p-12">
+                <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8">
                   La fórmula completa para crear contenido viral, crecer en redes, posicionarte y vender…<br />
                   <span className="font-bold">Por una fracción ridícula de su verdadero valor.</span>
                 </p>
 
-                <div className="space-y-6 text-left max-w-4xl mx-auto mb-8">
+                <div className="space-y-4 md:space-y-6 text-left max-w-4xl mx-auto mb-6 md:mb-8">
                   {[
                     { title: "MÓDULO 1: ENTENDÉ EL JUEGO", desc: "Descubrí cómo funciona el algoritmo, cómo piensan las plataformas y por qué la viralidad es parte clave del embudo de ventas.", value: "$240 USD" },
                     { title: "MÓDULO 2: ENCONTRÁ IDEAS QUE SE PUEDAN VIRALIZAR", desc: "Aprendé a encontrar temas irresistibles, analizar tendencias, y adaptar contenido sin copiar.", value: "$285 USD" },
@@ -677,34 +715,34 @@ const Index = () => {
                     { title: "MÓDULO 4: DOMINÁ TU PRESENCIA EN CÁMARA", desc: "Mejorá cómo te comunicás, usá tu lenguaje corporal y grabate con claridad y seguridad.", value: "$265 USD" },
                     { title: "MÓDULO 5: EDITÁ, PUBLICÁ Y ESCALÁ", desc: "Aprendé a editar sin complicarte, publicá con intención y organizá tu contenido para crecer sin quemarte.", value: "$360 USD" }
                   ].map((item, index) => (
-                    <div key={index} className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                    <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-gray-100">
                       <div className="flex items-start">
-                        <span className="text-cyan-500 font-bold mr-4 text-xl">✓</span>
+                        <span className="text-cyan-500 font-bold mr-4 text-lg md:text-xl">✓</span>
                         <div className="flex-1">
-                          <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
-                          <p className="text-gray-700 mb-2">{item.desc}</p>
-                          <p className="text-cyan-600 font-bold">💸 VALOR REAL: {item.value}</p>
+                          <h4 className="font-bold text-gray-900 mb-2 text-sm md:text-base">{item.title}</h4>
+                          <p className="text-gray-700 mb-2 text-xs md:text-sm">{item.desc}</p>
+                          <p className="text-cyan-600 font-bold text-sm md:text-base">💸 VALOR REAL: {item.value}</p>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-8 rounded-2xl mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">🎁 Además, desbloqueás estos 3 BONUSES totalmente GRATIS:</h3>
-                  <div className="space-y-4 text-left">
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 md:p-8 rounded-2xl mb-6 md:mb-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">🎁 Además, desbloqueás estos 3 BONUSES totalmente GRATIS:</h3>
+                  <div className="space-y-3 md:space-y-4 text-left">
                     {[
                       { title: "BONUS #1: +400 HOOKS VIRALES", desc: "El archivo que te resuelve el '¿cómo empiezo este video?'", value: "$90 USD" },
                       { title: "BONUS #2: MENTALIDAD VIRAL", desc: "Tu mente es el algoritmo más importante. Acá lo entrenamos.", value: "$250 USD" },
                       { title: "BONUS #3: PLANTILLAS DE GUIONES VIRALES", desc: "Para que no pierdas tiempo armando todo desde cero.", value: "$190 USD" }
                     ].map((bonus, index) => (
-                      <div key={index} className="bg-white p-4 rounded-lg border border-yellow-200">
+                      <div key={index} className="bg-white p-3 md:p-4 rounded-lg border border-yellow-200">
                         <div className="flex items-start">
                           <span className="text-yellow-500 font-bold mr-4">🎁</span>
                           <div className="flex-1">
-                            <h4 className="font-bold text-gray-900">{bonus.title}</h4>
-                            <p className="text-gray-700 text-sm mb-1">{bonus.desc}</p>
-                            <p className="text-yellow-600 font-bold text-sm">💸 VALOR REAL: {bonus.value}</p>
+                            <h4 className="font-bold text-gray-900 text-sm md:text-base">{bonus.title}</h4>
+                            <p className="text-gray-700 text-xs md:text-sm mb-1">{bonus.desc}</p>
+                            <p className="text-yellow-600 font-bold text-xs md:text-sm">💸 VALOR REAL: {bonus.value}</p>
                           </div>
                         </div>
                       </div>
@@ -712,37 +750,31 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="bg-gray-900 text-white p-8 rounded-2xl mb-8">
+                <div className="bg-gray-900 text-white p-6 md:p-8 rounded-2xl mb-6 md:mb-8">
                   <div className="text-center">
-                    <p className="text-xl mb-4">💰 VALOR TOTAL DEL PAQUETE:</p>
-                    <p className="text-4xl font-bold text-cyan-400 mb-8">$2,110 USD</p>
+                    <p className="text-lg md:text-xl mb-4">💰 VALOR TOTAL DEL PAQUETE:</p>
+                    <p className="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 md:mb-8">$2,110 USD</p>
                     
-                    <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 p-6 rounded-xl">
-                      <p className="text-lg mb-2">🔓 PRECIO DE LANZAMIENTO HOY:</p>
+                    <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 p-4 md:p-6 rounded-xl">
+                      <p className="text-base md:text-lg mb-2">🔓 PRECIO DE LANZAMIENTO HOY:</p>
                       <div className="flex items-center justify-center gap-4 mb-4">
-                        <span className="text-2xl line-through text-gray-300">$2,110</span>
-                        <span className="text-5xl font-bold text-white">$47 USD</span>
+                        <span className="text-xl md:text-2xl line-through text-gray-300">$2,110</span>
+                        <span className="text-4xl md:text-5xl font-bold text-white">$67 USD</span>
                       </div>
-                      <p className="text-cyan-100">Un curso que vale más que muchas mentorías. Y vos lo desbloqueás con un solo clic.</p>
+                      <p className="text-cyan-100 text-sm md:text-base">Un curso que vale más que muchas mentorías. Y vos lo desbloqueás con un solo clic.</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="relative group">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-300 group-hover:animate-glow"></div>
-                  <Button 
-                    className="relative w-full max-w-2xl mx-auto bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-bold py-12 px-12 rounded-3xl text-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
-                    onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
-                  >
-                    <div className="flex flex-col items-center gap-4">
-                      <div className="flex items-center gap-4">
-                        <Play className="w-8 h-8 animate-pulse" />
-                        <span className="text-2xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-                      </div>
-                      <div className="text-lg opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+                <CTAButton isLast={true}>
+                  <div className="flex flex-col items-center gap-3 md:gap-4">
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <Play className="w-6 md:w-8 h-6 md:h-8 animate-pulse" />
+                      <span className="text-xl md:text-2xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
                     </div>
-                  </Button>
-                </div>
+                    <div className="text-base md:text-lg opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+                  </div>
+                </CTAButton>
               </CardContent>
             </Card>
           </div>
@@ -750,27 +782,27 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">Preguntas Frecuentes</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-gray-900">Preguntas Frecuentes</h2>
             
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {faqData.map((faq, index) => (
-                <Card key={index} className="shadow-xl border-0 overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-300">
+                <Card key={index} className="shadow-lg border-0 overflow-hidden bg-white hover:shadow-xl transition-all duration-300 rounded-2xl">
                   <CardContent className="p-0">
                     <button
-                      className="w-full p-8 text-left font-bold text-xl text-gray-900 hover:bg-gradient-to-r hover:from-cyan-50 hover:to-transparent transition-all duration-300 flex justify-between items-center"
+                      className="w-full p-4 md:p-6 lg:p-8 text-left font-bold text-base md:text-lg lg:text-xl text-gray-900 hover:bg-gradient-to-r hover:from-cyan-50 hover:to-transparent transition-all duration-300 flex justify-between items-center"
                       onClick={() => toggleFaq(index)}
                     >
-                      <span>{faq.question}</span>
-                      <span className={`transform transition-transform duration-300 text-cyan-500 text-2xl ${expandedFaq === index ? 'rotate-180' : ''}`}>
+                      <span className="pr-4">{faq.question}</span>
+                      <span className={`transform transition-transform duration-300 text-cyan-500 text-xl md:text-2xl flex-shrink-0 ${expandedFaq === index ? 'rotate-180' : ''}`}>
                         ▼
                       </span>
                     </button>
                     {expandedFaq === index && (
-                      <div className="px-8 pb-8 bg-gradient-to-r from-cyan-50 to-transparent">
-                        <p className="text-gray-700 leading-relaxed text-lg">{faq.answer}</p>
+                      <div className="px-4 md:px-6 lg:px-8 pb-4 md:pb-6 lg:pb-8 bg-gradient-to-r from-cyan-50 to-transparent">
+                        <p className="text-gray-700 leading-relaxed text-sm md:text-base lg:text-lg">{faq.answer}</p>
                       </div>
                     )}
                   </CardContent>
@@ -782,36 +814,36 @@ const Index = () => {
       </section>
 
       {/* Final Footer CTA */}
-      <section className="py-16 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">
             ¿Estás listo para desbloquear tu potencial viral?
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90">
             Miles de personas ya están aplicando estos pasos. Es tu momento.
           </p>
           <CTAButton className="bg-white text-cyan-600 hover:bg-gray-100">
             <div className="flex flex-col items-center gap-2">
               <div className="flex items-center gap-3">
-                <Play className="w-6 h-6 animate-pulse" />
-                <span className="text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                <Play className="w-5 md:w-6 h-5 md:h-6 animate-pulse" />
+                <span className="text-lg md:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
               </div>
-              <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 47usd</div>
+              <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
             </div>
           </CTAButton>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-gray-900 text-white">
+      <footer className="py-6 md:py-8 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
+          <p className="text-gray-400 text-sm md:text-base">
             Diseñado por{" "}
             <a 
               href="https://advantx.co" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200"
+              className="text-purple-400 hover:text-purple-300 font-semibold transition-colors duration-200"
             >
               AdvantX
             </a>
