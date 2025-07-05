@@ -52,7 +52,6 @@ const Index = () => {
     "/lovable-uploads/9aeed766-0392-4b4c-a2cd-164b76b97deb.png",
     "/lovable-uploads/458b22d0-869e-4fd8-ace1-e6fbbd8e2280.png",
     "/lovable-uploads/4769216b-dc3e-447f-8861-b878c8290cdb.png",
-    "/lovable-uploads/8887b4e2-fb7b-4f6b-a409-a482105022f6.png",
     "/lovable-uploads/52445746-d60b-4ab6-b4c8-121a2e199ea4.png",
     "/lovable-uploads/d204411a-481c-4b83-9bda-837fed21bf7f.png",
     "/lovable-uploads/abeb6912-6e67-4fab-9bd0-b8b7b7781db3.png",
@@ -150,7 +149,7 @@ const Index = () => {
               La llave Que Usan Los Influencers y Negocios Para Viralizarse
             </div>
             
-            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight max-w-5xl mx-auto px-2">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight max-w-6xl mx-auto px-2">
               LA LLAVE QUE{" "}
               <span className="bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-700 bg-clip-text text-transparent">
                 DESBLOQUEA VIRALIDAD REAL
@@ -167,7 +166,7 @@ const Index = () => {
             </div>
 
             {/* Video Section */}
-            <div className="relative max-w-2xl mx-auto mb-6 md:mb-8 px-4">
+            <div className="relative max-w-3xl mx-auto mb-6 md:mb-8 px-4">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
                 <div className="aspect-video">
                   <iframe 
@@ -409,6 +408,14 @@ const Index = () => {
                 <p>
                   Hasta que logré ordenar todo lo que funciona en <strong>una fórmula concreta, accionable y simple</strong>.
                 </p>
+
+                <div className="flex justify-center my-6">
+                  <img 
+                    src="/lovable-uploads/5pasos1.png" 
+                    alt="Ejemplo viral Pope in the Pool" 
+                    className="rounded-xl shadow-lg max-w-full w-48 md:w-64"
+                  />
+                </div>
 
                 <div className="bg-cyan-100 p-6 md:p-8 rounded-2xl text-center my-6 md:my-8">
                   <p className="text-xl md:text-2xl font-bold text-cyan-800">
