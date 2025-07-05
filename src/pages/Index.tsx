@@ -29,11 +29,7 @@ const Index = () => {
 
   const CTAButton = ({ children, className = "", isLast = false }: { children: React.ReactNode; className?: string; isLast?: boolean }) => (
     <Button 
-      className={`w-full max-w-lg mx-auto ${
-        isLast 
-          ? 'bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700' 
-          : 'bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700'
-      } text-white font-bold py-6 md:py-8 px-6 md:px-8 rounded-3xl text-base md:text-lg shadow-2xl transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 border-0 ultra-glow ${className}`}
+      className={`w-full max-w-lg mx-auto bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-4 md:py-6 px-4 md:px-6 rounded-2xl text-sm md:text-base lg:text-lg shadow-lg transition-colors duration-300 border-0 cta-glow ${className}`}
       onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
     >
       {children}
@@ -174,9 +170,9 @@ const Index = () => {
             </div>
 
             <CTAButton>
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-lg md:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-                <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+              <div className="flex flex-col items-center gap-1 md:gap-2">
+                <span className="text-base md:text-lg lg:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                <div className="text-xs md:text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
               </div>
             </CTAButton>
           </div>
@@ -254,9 +250,9 @@ const Index = () => {
 
               <div className="pt-6">
                 <CTAButton>
-                  <div className="flex flex-col items-center gap-2">
-                    <span className="text-lg md:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-                    <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+                  <div className="flex flex-col items-center gap-1 md:gap-2">
+                    <span className="text-base md:text-lg lg:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                    <div className="text-xs md:text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
                   </div>
                 </CTAButton>
               </div>
@@ -326,7 +322,7 @@ const Index = () => {
                     <img 
                       src={image}
                       alt={`Testimonio ${i + 1}`}
-                      className="rounded-xl shadow-lg w-full h-64 object-cover"
+                      className="rounded-xl shadow-lg w-full h-80 object-cover"
                     />
                   </div>
                 ))}
@@ -455,7 +451,7 @@ const Index = () => {
                 {
                   image: "/lovable-uploads/13561307-0c64-46c4-aa64-39396fdd7823.png",
                   step: "🧰 PASO 1 – Abrí El Cofre: Entendé el juego antes de jugarlo mal.",
-                  stepNumber: "PASO 1",
+                  stepNumber: "01",
                   title: "LA LLAVE PARA DEJAR DE SENTIRTE INVISIBLE EN REDES",
                   description: "¿Te pasó alguna vez que subiste un video con toda la ilusión del mundo y... 423 views?\nEl algoritmo no te odia. Solo no entiende tu idioma.\nAcá te enseño a hablarle claro, para que te muestre y te escuche.",
                   points: [
@@ -469,7 +465,7 @@ const Index = () => {
                 {
                   image: "/lovable-uploads/bd100388-8932-4bb3-954a-7a050b0c0925.png",
                   step: "PASO #2: Encontrá Tu Idea Viral: Dejá de tirar ideas al aire y empezá a crear con intención.",
-                  stepNumber: "PASO 2",
+                  stepNumber: "02",
                   title: "Deja de improvisar, el algoritmo no sabe a quién mostrarte.",
                   description: "¿Alguna vez te sentaste a grabar y no supiste por dónde empezar?\n¿O tenías varias ideas... pero ninguna te convencía?\n\nEsa incertidumbre te frena más de lo que pensás.\n\nEn este módulo vas a aprender a detectar ideas con potencial real de viralidad, adaptarlas a tu estilo, y encontrar oportunidades incluso en lo que hoy estás pasando por alto.\n\nNada de copiar. Nada de repetir fórmulas vacías.\nAcá empezás a crear con dirección, no con dudas.",
                   points: [
@@ -483,7 +479,7 @@ const Index = () => {
                 {
                   image: "/lovable-uploads/a5a2ce66-34c8-4aae-84de-856c15715ec5.png",
                   step: "PASO 3 – Estructurá Tu Mensaje: Aprendé a decirlo como alguien que quiere ser escuchado.",
-                  stepNumber: "PASO 3",
+                  stepNumber: "03",
                   title: "No es lo que decís. Es cómo lo decís lo que hace que te escuchen.",
                   description: "Seguro alguna vez tuviste una buena idea, pero cuando la grabaste y publicaste… no generó nada.\n\nNi likes, ni compartidos, ni comentarios.\n\nEl problema no era la idea. Era cómo la dijiste.\n\nEn este módulo vas a aprender a estructurar tus guiones para captar atención desde el primer segundo, mantenerla hasta el final y provocar interacción real.\n\nNo es actuar, es saber cómo guiar la atención segundo a segundo.",
                   points: [
@@ -497,7 +493,7 @@ const Index = () => {
                 {
                   image: "/lovable-uploads/37b60711-53c0-475e-996f-92434c993a2a.png",
                   step: "🎥 PASO 4 – Grabate Como Un Referente: Mostrate con seguridad, incluso si nunca te sentiste cómodo frente a cámara.",
-                  stepNumber: "PASO 4",
+                  stepNumber: "04",
                   title: "Tu presencia también se puede entrenar. Y cuando aparece, se nota.",
                   description: "¿Tenés una buena idea y un guión sólido… pero al grabarte, no se siente bien?\n¿Sentís que no transmitís lo que querías, que algo se pierde en cámara?\n\nTranquila. No es tu culpa. Solo nadie te enseñó a comunicar con intención.\n\nEn este módulo vas a aprender a comunicar con presencia, claridad y confianza, sin actuar ni forzar nada.\nPorque mostrarte no debería ser un peso… sino una herramienta.",
                   points: [
@@ -511,7 +507,7 @@ const Index = () => {
                 {
                   image: "/lovable-uploads/993b0e75-dddb-4015-9472-03d0a3c1406c.png",
                   step: "🧩 PASO 5 – Editá, Publicá y Organizate: Creá contenido sin sentirte desbordado ni improvisar nunca más.",
-                  stepNumber: "PASO 5",
+                  stepNumber: "05",
                   title: "Sin un plan, no hay repetición de resultados. Y sin repetición, no hay crecimiento.",
                   description: "Este es el paso que todos subestiman. ¿De qué sirve grabar si lo editás mal o perdés todos tus videos en carpetas desordenadas? Este módulo es donde todo se junta.",
                   points: [
@@ -527,8 +523,8 @@ const Index = () => {
                   <CardContent className="p-0">
                     <div className="relative">
                       {/* Step Number Overlay */}
-                      <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-2 rounded-full font-bold text-sm md:text-base shadow-lg">
-                        {module.stepNumber}
+                      <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-3 md:px-4 py-2 md:py-3 rounded-full font-bold text-sm md:text-base shadow-lg">
+                        PASO {module.stepNumber}
                       </div>
                       
                       <div className="grid md:grid-cols-2 gap-0">
@@ -540,7 +536,7 @@ const Index = () => {
                           />
                         </div>
                         <div className="p-6 md:p-8 bg-white">
-                          <div className="bg-gradient-to-r from-cyan-100 to-purple-100 text-cyan-800 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 inline-block border border-cyan-200">
+                          <div className="bg-gradient-to-r from-cyan-100 to-cyan-50 text-cyan-800 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 inline-block border border-cyan-200">
                             {module.step}
                           </div>
                           <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 leading-tight">{module.title}</h3>
@@ -553,7 +549,7 @@ const Index = () => {
                               </li>
                             ))}
                           </ul>
-                          <div className="bg-gradient-to-r from-cyan-50 to-purple-50 p-3 md:p-4 rounded-xl border-l-4 border-cyan-500">
+                          <div className="bg-gradient-to-r from-cyan-50 to-cyan-25 p-3 md:p-4 rounded-xl border-l-4 border-cyan-500">
                             <p className="text-gray-800 font-semibold whitespace-pre-line text-sm md:text-base leading-relaxed">
                               {module.conclusion}
                             </p>
@@ -568,9 +564,9 @@ const Index = () => {
 
             <div className="text-center mt-12 md:mt-16">
               <CTAButton>
-                <div className="flex flex-col items-center gap-2">
-                  <span className="text-lg md:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-                  <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+                <div className="flex flex-col items-center gap-1 md:gap-2">
+                  <span className="text-base md:text-lg lg:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                  <div className="text-xs md:text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
                 </div>
               </CTAButton>
             </div>
@@ -670,9 +666,9 @@ const Index = () => {
 
             <div className="text-center mt-12 md:mt-16">
               <CTAButton>
-                <div className="flex flex-col items-center gap-2">
-                  <span className="text-lg md:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-                  <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+                <div className="flex flex-col items-center gap-1 md:gap-2">
+                  <span className="text-base md:text-lg lg:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                  <div className="text-xs md:text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
                 </div>
               </CTAButton>
             </div>
@@ -762,10 +758,10 @@ const Index = () => {
                   </div>
                 </div>
 
-                <CTAButton isLast={true} className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700">
-                  <div className="flex flex-col items-center gap-3 md:gap-4">
-                    <span className="text-xl md:text-2xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-                    <div className="text-base md:text-lg opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+                <CTAButton isLast={true}>
+                  <div className="flex flex-col items-center gap-2 md:gap-3">
+                    <span className="text-base md:text-lg lg:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                    <div className="text-xs md:text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
                   </div>
                 </CTAButton>
               </CardContent>
@@ -816,9 +812,9 @@ const Index = () => {
             Miles de personas ya están aplicando estos pasos. Es tu momento.
           </p>
           <CTAButton className="bg-white text-cyan-600 hover:bg-gray-100">
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-lg md:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-              <div className="text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+            <div className="flex flex-col items-center gap-1 md:gap-2">
+              <span className="text-base md:text-lg lg:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+              <div className="text-xs md:text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
             </div>
           </CTAButton>
         </div>
