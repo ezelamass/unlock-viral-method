@@ -30,7 +30,7 @@ const Index = () => {
 
   const CTAButton = ({ children, className = "", isLast = false, removeGlow = false }: { children: React.ReactNode; className?: string; isLast?: boolean; removeGlow?: boolean }) => (
     <Button 
-      className={`w-full max-w-lg mx-auto bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 md:py-4 px-3 md:px-4 rounded-2xl text-xs md:text-sm lg:text-base shadow-lg transition-colors duration-300 border-0 ${!removeGlow ? 'cta-glow' : ''} ${className}`}
+      className={`w-full max-w-lg mx-auto bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-6 md:py-8 px-3 md:px-4 rounded-2xl text-xs md:text-sm lg:text-base shadow-lg transition-all duration-300 border-0 hover:-translate-y-1 hover:shadow-xl ${!removeGlow ? 'cta-glow' : ''} ${className}`}
       onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
     >
       {children}
