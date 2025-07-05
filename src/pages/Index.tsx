@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -27,9 +28,9 @@ const Index = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonialImages.length) % testimonialImages.length);
   };
 
-  const CTAButton = ({ children, className = "", isLast = false }: { children: React.ReactNode; className?: string; isLast?: boolean }) => (
+  const CTAButton = ({ children, className = "", isLast = false, removeGlow = false }: { children: React.ReactNode; className?: string; isLast?: boolean; removeGlow?: boolean }) => (
     <Button 
-      className={`w-full max-w-lg mx-auto bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-4 md:py-6 px-4 md:px-6 rounded-2xl text-sm md:text-base lg:text-lg shadow-lg transition-colors duration-300 border-0 cta-glow ${className}`}
+      className={`w-full max-w-lg mx-auto bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 md:py-4 px-3 md:px-4 rounded-2xl text-xs md:text-sm lg:text-base shadow-lg transition-colors duration-300 border-0 ${!removeGlow ? 'cta-glow' : ''} ${className}`}
       onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
     >
       {children}
@@ -143,7 +144,11 @@ const Index = () => {
             </div>
             
             <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight max-w-5xl mx-auto px-2">
-              LA LLAVE QUE DESBLOQUEA VIRALIDAD REAL EN REDES
+              LA LLAVE QUE{" "}
+              <span className="bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-700 bg-clip-text text-transparent">
+                DESBLOQUEA VIRALIDAD REAL
+              </span>{" "}
+              EN REDES
             </h1>
 
             <h2 className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-700 mb-6 md:mb-8 leading-relaxed max-w-4xl mx-auto px-2">
@@ -169,10 +174,10 @@ const Index = () => {
               </div>
             </div>
 
-            <CTAButton>
-              <div className="flex flex-col items-center gap-1 md:gap-2">
-                <span className="text-base md:text-lg lg:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-                <div className="text-xs md:text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+            <CTAButton removeGlow={true}>
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-sm md:text-base lg:text-lg font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                <div className="text-xs opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
               </div>
             </CTAButton>
           </div>
@@ -519,41 +524,39 @@ const Index = () => {
                   conclusion: "Vas a dejar de 'hacer lo que podés' para empezar a crear con un plan que podés sostener en el tiempo. Convirtiendo tu talento en resultados reales y sostenibles."
                 }
               ].map((module, index) => (
-                <Card key={index} className="shadow-2xl border-0 overflow-hidden bg-white hover:shadow-3xl transition-all duration-300">
+                <Card key={index} className="shadow-2xl border-0 overflow-hidden bg-white hover:shadow-3xl transition-all duration-300 relative">
+                  {/* Step Number Overlay - moved to top-left */}
+                  <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-3 md:px-4 py-2 rounded-full font-bold text-sm md:text-base shadow-lg">
+                    PASO {module.stepNumber}
+                  </div>
+                  
                   <CardContent className="p-0">
-                    <div className="relative">
-                      {/* Step Number Overlay */}
-                      <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-3 md:px-4 py-2 md:py-3 rounded-full font-bold text-sm md:text-base shadow-lg">
-                        PASO {module.stepNumber}
+                    <div className="grid md:grid-cols-2 gap-0">
+                      <div className="bg-gradient-to-br from-gray-50 to-white p-6 md:p-8 flex items-center justify-center relative pt-16 md:pt-8">
+                        <img 
+                          src={module.image}
+                          alt={`Módulo ${index + 1}`}
+                          className="rounded-xl shadow-lg max-w-full w-48 md:w-72 hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
-                      
-                      <div className="grid md:grid-cols-2 gap-0">
-                        <div className="bg-gradient-to-br from-gray-50 to-white p-6 md:p-8 flex items-center justify-center relative">
-                          <img 
-                            src={module.image}
-                            alt={`Módulo ${index + 1}`}
-                            className="rounded-xl shadow-lg max-w-full w-48 md:w-72 hover:scale-105 transition-transform duration-300"
-                          />
+                      <div className="p-6 md:p-8 bg-white pt-16 md:pt-8">
+                        <div className="bg-gradient-to-r from-cyan-100 to-cyan-50 text-cyan-800 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 inline-block border border-cyan-200">
+                          {module.step}
                         </div>
-                        <div className="p-6 md:p-8 bg-white">
-                          <div className="bg-gradient-to-r from-cyan-100 to-cyan-50 text-cyan-800 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 inline-block border border-cyan-200">
-                            {module.step}
-                          </div>
-                          <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 leading-tight">{module.title}</h3>
-                          <p className="text-gray-700 mb-4 md:mb-6 whitespace-pre-line text-sm md:text-base leading-relaxed">{module.description}</p>
-                          <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6">
-                            {module.points.map((point, pointIndex) => (
-                              <li key={pointIndex} className="flex items-start">
-                                <span className="text-cyan-500 font-bold mr-3 text-base md:text-lg">✔️</span>
-                                <span className="text-gray-700 text-sm md:text-base leading-relaxed">{point}</span>
-                              </li>
-                            ))}
-                          </ul>
-                          <div className="bg-gradient-to-r from-cyan-50 to-cyan-25 p-3 md:p-4 rounded-xl border-l-4 border-cyan-500">
-                            <p className="text-gray-800 font-semibold whitespace-pre-line text-sm md:text-base leading-relaxed">
-                              {module.conclusion}
-                            </p>
-                          </div>
+                        <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 leading-tight">{module.title}</h3>
+                        <p className="text-gray-700 mb-4 md:mb-6 whitespace-pre-line text-sm md:text-base leading-relaxed">{module.description}</p>
+                        <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6">
+                          {module.points.map((point, pointIndex) => (
+                            <li key={pointIndex} className="flex items-start">
+                              <span className="text-cyan-500 font-bold mr-3 text-base md:text-lg">✔️</span>
+                              <span className="text-gray-700 text-sm md:text-base leading-relaxed">{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="bg-gradient-to-r from-cyan-50 to-cyan-25 p-3 md:p-4 rounded-xl border-l-4 border-cyan-500">
+                          <p className="text-gray-800 font-semibold whitespace-pre-line text-sm md:text-base leading-relaxed">
+                            {module.conclusion}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -564,9 +567,9 @@ const Index = () => {
 
             <div className="text-center mt-12 md:mt-16">
               <CTAButton>
-                <div className="flex flex-col items-center gap-1 md:gap-2">
-                  <span className="text-base md:text-lg lg:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-                  <div className="text-xs md:text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-sm md:text-base lg:text-lg font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                  <div className="text-xs opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
                 </div>
               </CTAButton>
             </div>
@@ -759,9 +762,9 @@ const Index = () => {
                 </div>
 
                 <CTAButton isLast={true}>
-                  <div className="flex flex-col items-center gap-2 md:gap-3">
-                    <span className="text-base md:text-lg lg:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-                    <div className="text-xs md:text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+                  <div className="flex flex-col items-center gap-1 md:gap-2">
+                    <span className="text-sm md:text-base lg:text-lg font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+                    <div className="text-xs opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
                   </div>
                 </CTAButton>
               </CardContent>
@@ -811,10 +814,10 @@ const Index = () => {
           <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90">
             Miles de personas ya están aplicando estos pasos. Es tu momento.
           </p>
-          <CTAButton className="bg-white text-cyan-600 hover:bg-gray-100">
-            <div className="flex flex-col items-center gap-1 md:gap-2">
-              <span className="text-base md:text-lg lg:text-xl font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
-              <div className="text-xs md:text-sm opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
+          <CTAButton className="bg-white text-cyan-600 hover:bg-gray-100" removeGlow={true}>
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-sm md:text-base lg:text-lg font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
+              <div className="text-xs opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
             </div>
           </CTAButton>
         </div>
