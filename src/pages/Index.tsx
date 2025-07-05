@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -56,7 +55,15 @@ const Index = () => {
     "/lovable-uploads/8887b4e2-fb7b-4f6b-a409-a482105022f6.png",
     "/lovable-uploads/52445746-d60b-4ab6-b4c8-121a2e199ea4.png",
     "/lovable-uploads/d204411a-481c-4b83-9bda-837fed21bf7f.png",
-    "/lovable-uploads/abeb6912-6e67-4fab-9bd0-b8b7b7781db3.png"
+    "/lovable-uploads/abeb6912-6e67-4fab-9bd0-b8b7b7781db3.png",
+    "/lovable-uploads/6bb6bff5-a3a4-4e0f-8131-1cc29d96226f.png",
+    "/lovable-uploads/c115a6bc-76c7-450b-8139-d9820aefbee7.png",
+    "/lovable-uploads/6e633f9c-9a79-4f91-9145-01f9b4cc1fec.png",
+    "/lovable-uploads/e4519468-b90e-4918-969e-0a741d667d74.png",
+    "/lovable-uploads/7a7be652-1ca2-430d-87a0-015a17359a4f.png",
+    "/lovable-uploads/a9b2e28a-e4df-494d-9489-061f7a22e61b.png",
+    "/lovable-uploads/6cc5eb8c-a121-431e-9a41-e9940e157d3c.png",
+    "/lovable-uploads/870af22a-38be-43a0-a13a-55b25ea31b0f.png"
   ];
 
   const faqData = [
@@ -237,7 +244,7 @@ const Index = () => {
 
               <div className="bg-gray-50 p-4 md:p-6 rounded-xl">
                 <p className="text-gray-700 mb-4">
-                  Y no, no te doy hacks vacíos como qué hashtag tenes que poner.
+                  Y no, no te doy hacks vacíos como qué hashtag tenés que poner.
                 </p>
                 <p className="text-gray-700 mb-4">
                   Desarrollé un método replicable que hoy usan creadores, emprendedores y profesionales que pagan hasta <strong><span className="text-cyan-600">2.000 USD en otras mentorías 1 a 1</span></strong>.
@@ -327,7 +334,7 @@ const Index = () => {
                     <img 
                       src={image}
                       alt={`Testimonio ${i + 1}`}
-                      className="rounded-xl shadow-lg w-full h-80 object-cover"
+                      className="rounded-xl shadow-lg w-full h-80 object-contain bg-gray-50"
                     />
                   </div>
                 ))}
@@ -365,7 +372,7 @@ const Index = () => {
 
           {/* Mobile Vertical Grid */}
           <div className="md:hidden grid grid-cols-1 gap-4 max-w-sm mx-auto">
-            {testimonialImages.slice(0, 9).map((image, i) => (
+            {testimonialImages.slice(0, 15).map((image, i) => (
               <img 
                 key={i}
                 src={image}

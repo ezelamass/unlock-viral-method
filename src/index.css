@@ -184,7 +184,7 @@ All colors MUST be HSL.
     }
   }
 
-  /* CTA Button Glow Animation */
+  /* CTA Button Glow Animation - Simplified */
   .cta-glow {
     position: relative;
     overflow: visible;
@@ -199,30 +199,13 @@ All colors MUST be HSL.
     bottom: -2px;
     background: linear-gradient(
       45deg,
-      transparent,
+      rgba(6, 182, 212, 0.6),
       rgba(6, 182, 212, 0.8),
-      transparent,
-      rgba(6, 182, 212, 0.8),
-      transparent
+      rgba(6, 182, 212, 0.6)
     );
     border-radius: inherit;
     z-index: -1;
-    animation: border-glow 3s linear infinite;
     opacity: 0.7;
-  }
-
-  @keyframes border-glow {
-    0% {
-      background-position: 0% 50%;
-      transform: rotate(0deg);
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-      transform: rotate(360deg);
-    }
   }
 
   /* Enhanced mobile responsive utilities */
