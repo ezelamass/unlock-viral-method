@@ -877,14 +877,9 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <p className="text-gray-400 text-sm md:text-base">
             Diseñado por{" "}
-            <a 
-              href="https://advantx.co" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-purple-400 hover:text-purple-300 font-semibold transition-colors duration-200"
-            >
+            <span className="text-purple-400 font-semibold">
               AdvantX
-            </a>
+            </span>
           </p>
         </div>
       </footer>
