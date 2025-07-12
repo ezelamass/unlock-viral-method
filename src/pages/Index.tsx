@@ -209,7 +209,7 @@ const Index = () => {
       </section>
 
       {/* About Section - Centered content */}
-      <section className="py-12 md:py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="space-y-4 text-sm md:text-base">
@@ -292,7 +292,7 @@ const Index = () => {
       </section>
 
       {/* New Target Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-white to-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-gray-900">
@@ -306,7 +306,7 @@ const Index = () => {
                 "Querés crecer en redes, pero sin copiar lo que hacen todos.",
                 "Estás cansado de probar tips sueltos y querés una fórmula que funcione en serio."
               ].map((item, index) => (
-                <div key={index} className="bg-gray-50 p-4 md:p-6 rounded-xl shadow-lg border border-cyan-100">
+                <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-cyan-100">
                   <div className="flex items-start">
                     <span className="text-cyan-500 font-bold mr-4 text-lg md:text-xl">✓</span>
                     <p className="text-gray-700 text-sm md:text-lg leading-relaxed">{item}</p>
@@ -318,17 +318,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section 1 - He ayudado a */}
+      {/* Testimonials Section 1 - He ayudado a - Enhanced desktop photo size */}
       <section className="py-12 md:py-16 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900">He ayudado a...</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-7xl mx-auto">
             {helpedImages.map((image, i) => (
               <img 
                 key={i}
                 src={image}
                 alt={`Cliente ${i + 1}`}
-                className="rounded-xl shadow-lg w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
+                className="rounded-xl shadow-lg w-full h-auto max-h-72 md:max-h-80 object-contain bg-white hover:scale-105 transition-transform duration-300"
               />
             ))}
           </div>
@@ -336,7 +336,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section 2 - Carrousel/Vertical - Enhanced photo size */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900">Algunos Testimonios...</h2>
           
@@ -403,7 +403,7 @@ const Index = () => {
       </section>
 
       {/* Formula Introduction */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <Card className="max-w-5xl mx-auto shadow-2xl border-0">
             <CardContent className="p-6 md:p-12">
@@ -472,7 +472,7 @@ const Index = () => {
       </section>
 
       {/* Course Content */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-slate-100">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12 md:mb-16">
@@ -610,8 +610,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Bonuses Section - Updated title colors */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900">
+      {/* Bonuses Section - Updated with attractive blue gradient */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 md:mb-16 text-white">
@@ -665,7 +665,7 @@ const Index = () => {
               ].map((bonus, index) => (
                 <Card key={index} className="shadow-2xl border-0 overflow-hidden bg-white">
                   <CardContent className="p-0">
-                    <div className="bg-gradient-to-r from-slate-600 to-slate-700 text-white p-3 md:p-4 text-center">
+                    <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white p-3 md:p-4 text-center">
                       <span className="font-bold text-base md:text-lg">{bonus.label}</span>
                     </div>
                     <div className="grid md:grid-cols-2 gap-0">
@@ -677,20 +677,20 @@ const Index = () => {
                         />
                       </div>
                       <div className="p-6 md:p-8">
-                        <div className="bg-gradient-to-r from-slate-600 to-slate-700 text-white px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 inline-block">
+                        <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 inline-block">
                           {bonus.step}
                         </div>
-                        <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">{bonus.title}</h3>
+                        <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">{bonus.title}</h3>
                         <p className="text-gray-700 mb-4 md:mb-6 text-sm md:text-base">{bonus.description}</p>
                         <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                           {bonus.points.map((point, pointIndex) => (
                             <li key={pointIndex} className="flex items-start">
-                              <span className="text-slate-500 font-bold mr-3 text-base md:text-lg">✔️</span>
+                              <span className="text-blue-500 font-bold mr-3 text-base md:text-lg">✔️</span>
                               <span className="text-gray-700 text-sm md:text-base">{point}</span>
                             </li>
                           ))}
                         </ul>
-                        <p className="text-gray-800 font-semibold bg-slate-50 p-3 md:p-4 rounded-xl text-sm md:text-base">
+                        <p className="text-gray-800 font-semibold bg-blue-50 p-3 md:p-4 rounded-xl text-sm md:text-base">
                           {bonus.conclusion}
                         </p>
                       </div>
@@ -713,7 +713,7 @@ const Index = () => {
       </section>
 
       {/* Final CTA Section - Updated pricing section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-slate-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8 text-gray-900">
@@ -783,7 +783,7 @@ const Index = () => {
                     <p className="text-lg md:text-xl mb-4">💰 VALOR TOTAL DEL PAQUETE:</p>
                     <p className="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 md:mb-8">$2,110 USD</p>
                     
-                    {/* Updated price banner without purple background */}
+                    {/* Updated price banner without background */}
                     <div className="p-4 md:p-6 rounded-xl mb-6">
                       <p className="text-base md:text-lg mb-2 text-gray-300">🔓 PRECIO DE LANZAMIENTO HOY:</p>
                       <div className="flex items-center justify-center gap-4 mb-4">
@@ -809,7 +809,7 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-50 to-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-gray-900">Preguntas Frecuentes</h2>
