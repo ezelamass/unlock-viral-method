@@ -291,11 +291,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* New Target Section - Light gray gradient */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-slate-100">
+      {/* New Target Section - Cyan background */}
+      <section className="py-12 md:py-16" style={{ backgroundColor: '#06B0CA' }}>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-gray-900">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-white">
               🔍 Unlock Viral es para vos si…
             </h2>
             
@@ -309,7 +309,7 @@ const Index = () => {
                 <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-cyan-100">
                   <div className="flex items-start">
                     <span className="text-cyan-500 font-bold mr-4 text-lg md:text-xl">✓</span>
-                    <p className="text-gray-700 text-sm md:text-lg leading-relaxed">{item}</p>
+                    <p className="text-black text-sm md:text-lg leading-relaxed">{item}</p>
                   </div>
                 </div>
               ))}
@@ -349,8 +349,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section 2 - Blue-gray background for contrast */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-blue-50 to-slate-50">
+      {/* Testimonials Section 2 - Darker cyan background for contrast */}
+      <section className="py-12 md:py-16 bg-gradient-to-br from-cyan-200 to-blue-200">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900">Algunos Testimonios...</h2>
           
