@@ -119,8 +119,8 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section - Enhanced with more background icons */}
-      <section className="py-8 md:py-12 bg-gradient-to-br from-cyan-50 to-white relative overflow-hidden">
+      {/* Hero Section - Cyan gradient background */}
+      <section className="py-8 md:py-12 bg-gradient-to-br from-cyan-50 via-cyan-25 to-blue-50 relative overflow-hidden">
         {/* Enhanced Background Icons with more elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 text-cyan-200 opacity-15">
@@ -208,8 +208,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section - Centered content */}
-      <section className="py-12 md:py-16 bg-slate-50">
+      {/* About Section - White background for contrast */}
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="space-y-4 text-sm md:text-base">
@@ -291,8 +291,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* New Target Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-white to-gray-50">
+      {/* New Target Section - Light gray gradient */}
+      <section className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-slate-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-gray-900">
@@ -318,7 +318,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section 1 - He ayudado a - Enhanced desktop photo size */}
+      {/* Testimonials Section 1 - Cyan gradient background */}
       <section className="py-12 md:py-16 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900">He ayudado a...</h2>
@@ -349,8 +349,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section 2 - Carrousel/Vertical - Enhanced photo size */}
-      <section className="py-12 md:py-16 bg-slate-50">
+      {/* Testimonials Section 2 - Blue-gray background for contrast */}
+      <section className="py-12 md:py-16 bg-gradient-to-br from-blue-50 to-slate-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900">Algunos Testimonios...</h2>
           
@@ -416,7 +416,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Formula Introduction */}
+      {/* Formula Introduction - White background */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <Card className="max-w-5xl mx-auto shadow-2xl border-0">
@@ -485,8 +485,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Course Content */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-slate-100">
+      {/* Course Content - Gray gradient background */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-slate-50 to-gray-100">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12 md:mb-16">
@@ -624,7 +624,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Bonuses Section - Updated with attractive blue gradient */}
+      {/* Bonuses Section - Dark blue gradient background */}
       <section className="py-16 md:py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -726,8 +726,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA Section - Updated pricing section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-slate-50 to-white">
+      {/* Final CTA Section - Light background for contrast */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-50 to-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8 text-gray-900">
@@ -822,8 +822,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-50 to-slate-50">
+      {/* FAQ Section - Blue-tinted background */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-blue-50 via-cyan-25 to-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-gray-900">Preguntas Frecuentes</h2>
@@ -854,7 +854,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final Footer CTA */}
+      {/* Final Footer CTA - Cyan gradient (same as before) */}
       <section className="py-12 md:py-16 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">
@@ -872,7 +872,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer - Dark background */}
       <footer className="py-6 md:py-8 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
           <p className="text-gray-400 text-sm md:text-base">
