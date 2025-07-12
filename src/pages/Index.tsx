@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -27,9 +28,9 @@ const Index = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonialImages.length) % testimonialImages.length);
   };
 
-  const CTAButton = ({ children, className = "", isLast = false, removeGlow = false }: { children: React.ReactNode; className?: string; isLast?: boolean; removeGlow?: boolean }) => (
+  const CTAButton = ({ children, className = "", isLast = false }: { children: React.ReactNode; className?: string; isLast?: boolean }) => (
     <Button 
-      className={`w-full max-w-lg mx-auto bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-6 md:py-8 px-3 md:px-4 rounded-2xl text-xs md:text-sm lg:text-base shadow-lg transition-all duration-300 border-0 hover:-translate-y-1 hover:shadow-xl ${!removeGlow ? 'cta-glow' : ''} ${className}`}
+      className={`w-full max-w-lg mx-auto bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-9 md:py-12 px-3 md:px-4 rounded-2xl text-xs md:text-sm lg:text-base shadow-lg transition-all duration-300 border-0 hover:-translate-y-2 hover:shadow-2xl ${className}`}
       onClick={() => window.open('https://araceliprudente51-0583.freshlearn.com/checkout/Course/33936', '_blank')}
     >
       {children}
@@ -119,27 +120,33 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section - Enhanced with background icons */}
       <section className="py-8 md:py-12 bg-gradient-to-br from-cyan-50 to-white relative overflow-hidden">
-        {/* Background Icons */}
+        {/* Enhanced Background Icons */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 text-cyan-200 opacity-20">
+          <div className="absolute top-20 left-10 text-cyan-200 opacity-15">
+            <Lock className="w-12 h-12 animate-float" />
+          </div>
+          <div className="absolute top-32 right-20 text-purple-200 opacity-15">
+            <Key className="w-10 h-10 animate-bounce-subtle" />
+          </div>
+          <div className="absolute bottom-40 left-20 text-cyan-200 opacity-15">
+            <Unlock className="w-14 h-14 animate-pulse" />
+          </div>
+          <div className="absolute top-60 right-10 text-purple-200 opacity-15">
             <Lock className="w-8 h-8 animate-float" />
           </div>
-          <div className="absolute top-32 right-20 text-purple-200 opacity-20">
-            <Key className="w-6 h-6 animate-bounce-subtle" />
+          <div className="absolute bottom-20 right-32 text-cyan-200 opacity-15">
+            <Key className="w-16 h-16 animate-bounce-subtle" />
           </div>
-          <div className="absolute bottom-40 left-20 text-cyan-200 opacity-20">
-            <Unlock className="w-7 h-7 animate-pulse" />
+          <div className="absolute top-80 left-32 text-purple-200 opacity-15">
+            <Unlock className="w-10 h-10 animate-pulse" />
           </div>
-          <div className="absolute top-60 right-10 text-purple-200 opacity-20">
-            <Lock className="w-5 h-5 animate-float" />
+          <div className="absolute top-40 left-1/2 text-cyan-200 opacity-10">
+            <Lock className="w-20 h-20 animate-float" />
           </div>
-          <div className="absolute bottom-20 right-32 text-cyan-200 opacity-20">
-            <Key className="w-9 h-9 animate-bounce-subtle" />
-          </div>
-          <div className="absolute top-80 left-32 text-purple-200 opacity-20">
-            <Unlock className="w-6 h-6 animate-pulse" />
+          <div className="absolute bottom-60 right-1/2 text-purple-200 opacity-10">
+            <Key className="w-18 h-18 animate-bounce-subtle" />
           </div>
         </div>
 
@@ -151,7 +158,7 @@ const Index = () => {
             
             <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight max-w-6xl mx-auto px-2">
               LA LLAVE QUE{" "}
-              <span className="bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-500 via-cyan-600 to-purple-600 bg-clip-text text-transparent">
                 DESBLOQUEA VIRALIDAD REAL
               </span>{" "}
               EN REDES
@@ -165,12 +172,12 @@ const Index = () => {
               <strong className="text-red-600">IMPORTANTE:</strong> <span className="text-gray-800">"Mirá hasta el final si querés saber cómo conseguirlo con el mismo sistema que YA usan mis alumnos."</span>
             </div>
 
-            {/* Video Section */}
+            {/* Video Section - Changed to Loom */}
             <div className="relative max-w-3xl mx-auto mb-6 md:mb-8 px-4">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
                 <div className="aspect-video">
                   <iframe 
-                    src="https://www.youtube.com/embed/2X7B8dKxxGE"
+                    src="https://www.loom.com/embed/f812f47443004b04a81f26d59cfae3c0"
                     title="Unlock Viral VSL"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -180,7 +187,7 @@ const Index = () => {
               </div>
             </div>
 
-            <CTAButton removeGlow={true}>
+            <CTAButton>
               <div className="flex flex-col items-center gap-1">
                 <span className="text-sm md:text-base lg:text-lg font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
                 <div className="text-xs opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
@@ -190,22 +197,23 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-12 md:py-16 bg-white">
+      {/* About Section - Different background */}
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="animate-fade-in order-2 md:order-1">
-              <img 
-                src="/lovable-uploads/9dacb8c7-8bf2-496c-9f71-9c1d73de4f6e.png" 
-                alt="Araceli Prudente" 
-                className="rounded-3xl shadow-2xl w-full max-w-xs md:max-w-sm mx-auto"
-              />
-            </div>
-            
-            <div className="space-y-4 text-sm md:text-base order-1 md:order-2">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div className="space-y-4 text-sm md:text-base order-1 md:order-1">
               <p className="text-gray-700">
                 <strong><span className="highlight-text">Soy Araceli Prudente.</span></strong>
               </p>
+
+              {/* Araceli's image moved here */}
+              <div className="animate-fade-in my-6">
+                <img 
+                  src="/lovable-uploads/9dacb8c7-8bf2-496c-9f71-9c1d73de4f6e.png" 
+                  alt="Araceli Prudente" 
+                  className="rounded-3xl shadow-2xl w-full max-w-xs md:max-w-sm mx-auto"
+                />
+              </div>
               
               <p className="text-gray-700">
                 No me hice viral de casualidad, me hice viral porque estudié y <strong>EXPERIMENTÉ</strong> cómo hacerlo.
@@ -241,7 +249,7 @@ const Index = () => {
                 </ul>
               </div>
 
-              <div className="bg-gray-50 p-4 md:p-6 rounded-xl">
+              <div className="bg-gray-100 p-4 md:p-6 rounded-xl">
                 <p className="text-gray-700 mb-4">
                   Y no, no te doy hacks vacíos como qué hashtag tenés que poner.
                 </p>
@@ -273,7 +281,7 @@ const Index = () => {
       </section>
 
       {/* New Target Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-cyan-50 to-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-gray-900">
@@ -287,7 +295,7 @@ const Index = () => {
                 "Querés crecer en redes, pero sin copiar lo que hacen todos.",
                 "Estás cansado de probar tips sueltos y querés una fórmula que funcione en serio."
               ].map((item, index) => (
-                <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-cyan-100">
+                <div key={index} className="bg-gray-50 p-4 md:p-6 rounded-xl shadow-lg border border-cyan-100">
                   <div className="flex items-start">
                     <span className="text-cyan-500 font-bold mr-4 text-lg md:text-xl">✓</span>
                     <p className="text-gray-700 text-sm md:text-lg leading-relaxed">{item}</p>
@@ -300,7 +308,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section 1 - He ayudado a */}
-      <section className="py-12 md:py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900">He ayudado a...</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-6xl mx-auto">
@@ -316,12 +324,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section 2 - Carrousel/Vertical */}
+      {/* Testimonials Section 2 - Carrousel/Vertical - Enhanced photo size */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900">Algunos Testimonios...</h2>
           
-          {/* Desktop Carousel */}
+          {/* Desktop Carousel - Enhanced photo size */}
           <div className="hidden md:block relative max-w-6xl mx-auto">
             <div className="overflow-hidden rounded-2xl">
               <div 
@@ -333,7 +341,7 @@ const Index = () => {
                     <img 
                       src={image}
                       alt={`Testimonio ${i + 1}`}
-                      className="rounded-xl shadow-lg w-full h-80 object-contain bg-gray-50"
+                      className="rounded-xl shadow-lg w-full h-96 object-contain bg-gray-50"
                     />
                   </div>
                 ))}
@@ -384,7 +392,7 @@ const Index = () => {
       </section>
 
       {/* Formula Introduction */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-50 to-white">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <Card className="max-w-5xl mx-auto shadow-2xl border-0">
             <CardContent className="p-6 md:p-12">
@@ -591,11 +599,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Bonuses Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-50 to-white">
+      {/* Bonuses Section - Dark blue gradient background */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 md:mb-16 text-gray-900">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 md:mb-16 text-white">
               🎁 Además, desbloqueás 3 BONUS exclusivos (totalmente GRATIS)
             </h2>
 
@@ -644,7 +652,7 @@ const Index = () => {
                   image: "/lovable-uploads/3b318131-11ca-478c-bfd7-c8955d4d6696.png"
                 }
               ].map((bonus, index) => (
-                <Card key={index} className="shadow-2xl border-0 overflow-hidden">
+                <Card key={index} className="shadow-2xl border-0 overflow-hidden bg-white">
                   <CardContent className="p-0">
                     <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-3 md:p-4 text-center">
                       <span className="font-bold text-base md:text-lg">{bonus.label}</span>
@@ -693,8 +701,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-16 md:py-20 bg-white">
+      {/* Final CTA Section - Enhanced price differentiation */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8 text-gray-900">
@@ -764,18 +772,20 @@ const Index = () => {
                     <p className="text-lg md:text-xl mb-4">💰 VALOR TOTAL DEL PAQUETE:</p>
                     <p className="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 md:mb-8">$2,110 USD</p>
                     
-                    <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 p-4 md:p-6 rounded-xl">
+                    {/* Enhanced price banner with different styling */}
+                    <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-4 md:p-6 rounded-xl mb-6">
                       <p className="text-base md:text-lg mb-2">🔓 PRECIO DE LANZAMIENTO HOY:</p>
                       <div className="flex items-center justify-center gap-4 mb-4">
                         <span className="text-xl md:text-2xl line-through text-gray-300">$2,110</span>
                         <span className="text-4xl md:text-5xl font-bold text-white">$67 USD</span>
                       </div>
-                      <p className="text-cyan-100 text-sm md:text-base">Un curso que vale más que muchas mentorías. Y vos lo desbloqueás con un solo clic.</p>
+                      <p className="text-purple-100 text-sm md:text-base">Un curso que vale más que muchas mentorías. Y vos lo desbloqueás con un solo clic.</p>
                     </div>
                   </div>
                 </div>
 
-                <CTAButton isLast={true}>
+                {/* Enhanced CTA button with different color to stand out */}
+                <CTAButton className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700">
                   <div className="flex flex-col items-center gap-1 md:gap-2">
                     <span className="text-sm md:text-base lg:text-lg font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
                     <div className="text-xs opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
@@ -828,7 +838,7 @@ const Index = () => {
           <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90">
             Miles de personas ya están aplicando estos pasos. Es tu momento.
           </p>
-          <CTAButton className="bg-white text-cyan-600 hover:bg-gray-100" removeGlow={true}>
+          <CTAButton className="bg-white text-cyan-600 hover:bg-gray-100">
             <div className="flex flex-col items-center gap-1">
               <span className="text-sm md:text-base lg:text-lg font-bold">¡Quiero Desbloquear El Curso Ahora!</span>
               <div className="text-xs opacity-90 font-medium">+3 Bonus Especiales, Por Tan Solo 67usd</div>
