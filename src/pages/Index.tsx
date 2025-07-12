@@ -322,13 +322,27 @@ const Index = () => {
       <section className="py-12 md:py-16 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900">He ayudado a...</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-7xl mx-auto">
-            {helpedImages.map((image, i) => (
+          
+          {/* First row - 3 images */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-4">
+            {helpedImages.slice(0, 3).map((image, i) => (
               <img 
                 key={i}
                 src={image}
                 alt={`Cliente ${i + 1}`}
-                className="rounded-xl shadow-lg w-full h-auto max-h-72 md:max-h-80 object-contain bg-white hover:scale-105 transition-transform duration-300"
+                className="rounded-xl shadow-lg w-full h-auto max-h-96 md:max-h-[420px] object-contain bg-white hover:scale-105 transition-transform duration-300"
+              />
+            ))}
+          </div>
+          
+          {/* Second row - 2 images centered */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {helpedImages.slice(3, 5).map((image, i) => (
+              <img 
+                key={i + 3}
+                src={image}
+                alt={`Cliente ${i + 4}`}
+                className="rounded-xl shadow-lg w-full h-auto max-h-96 md:max-h-[420px] object-contain bg-white hover:scale-105 transition-transform duration-300"
               />
             ))}
           </div>
